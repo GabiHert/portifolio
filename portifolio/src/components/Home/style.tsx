@@ -1,16 +1,16 @@
 import React from "react";
-import { Theme } from "./theme";
+import { Theme } from "../../theme";
 
 export const notHoverListStyle: React.CSSProperties = {
   color: Theme.colors.brand_300,
 };
-export const ontHoverListStyle: React.CSSProperties = {
+export const onHoverListStyle: React.CSSProperties = {
   color: Theme.colors.brand_500,
 };
 
-export const ontHoverSocialStyle: React.CSSProperties = {
-  color: Theme.colors.brand_500,
+export const onHoverSocialStyle: React.CSSProperties = {
+  minWidth: "20%",
 };
 export const nottHoverSocialStyle: React.CSSProperties = {
-  color: Theme.colors.brand_500,
+  minWidth: "1%",
 };
