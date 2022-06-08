@@ -1,16 +1,19 @@
 import React from "react";
-import { Theme } from "../../theme";
 
-export const notHoverListStyle: React.CSSProperties = {
-  color: Theme.colors.brand_300,
+export const gifMobilePosition: React.CSSProperties = {
+  position: "relative",
+  left: "50%",
+  transform: "translateX(-50%)",
 };
-export const onHoverListStyle: React.CSSProperties = {
-  color: Theme.colors.brand_500,
+export const gifDesktopPosition: React.CSSProperties = {
+  position: "absolute",
+  left: "90%",
+  transform: "translateX(-90%)",
 };
-
-export const onHoverSocialStyle: React.CSSProperties = {
-  minWidth: "20%",
+export const textDesktopPosition: React.CSSProperties = {
+  textAlign: "left",
+  paddingLeft: "15%",
 };
-export const nottHoverSocialStyle: React.CSSProperties = {
-  minWidth: "1%",
+export const textMobilePosition: React.CSSProperties = {
+  textAlign: "center",
 };

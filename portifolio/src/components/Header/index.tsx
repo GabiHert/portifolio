@@ -42,7 +42,9 @@ export function Header({ sectionName }: HeaderProps) {
         borderBottomLeftRadius: 11,
         flexDirection: "row",
         display: "flex",
-        position: "relative",
+        position: "sticky",
+        top: 0,
+        zIndex: 999,
       }}
     >
       <List
@@ -117,11 +119,11 @@ export function Header({ sectionName }: HeaderProps) {
           <>
             <EnvelopeSimple
               style={{
-                borderRadius: "30px",
-                backgroundColor: Theme.colors.brand_800,
+                borderRadius: "20px",
                 marginRight: "10%",
                 color: Theme.colors.brand_300,
                 height: "100%",
+                ...mailHoverStyle,
               }}
               size="100%"
               height="90%"

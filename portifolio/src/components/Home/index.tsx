@@ -1,60 +1,94 @@
 import { Theme } from "../../theme";
 import { CaretDown } from "phosphor-react";
+import "./bounce.css";
+import {
+  gifDesktopPosition,
+  gifMobilePosition,
+  textDesktopPosition,
+  textMobilePosition,
+} from "./style";
+import {
+  batch,
+  Fade,
+  FadeIn,
+  Move,
+  Sticky,
+  StickyIn,
+  ZoomIn,
+} from "react-scroll-motion";
 
-export function Home() {
+interface homeProps {
+  mobile: boolean;
+  setSectionName: (sectionName: string | null) => void;
+}
+
+export function Home({ mobile, setSectionName }: homeProps) {
+  setSectionName(null);
+  const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+  const FadeUp = batch(Fade(), Move(), Sticky());
   return (
     <>
+      <div
+        className="animated-gif"
+        style={{
+          marginTop: "20px",
+          backgroundColor: "white",
+          borderRadius: "200px",
+          width: "400px",
+          height: "400px",
+          ...(mobile ? gifMobilePosition : gifDesktopPosition),
+        }}
+      ></div>
+
       <div
         style={{
           flexDirection: "row",
           display: "flex",
-          position: "relative",
           paddingTop: "10px",
         }}
       >
-        <span>
+        <span
+          style={{
+            ...(mobile
+              ? {
+                  position: "relative",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }
+              : null),
+          }}
+        >
           <h1
             style={{
-              paddingLeft: "10%",
               fontSize: "200px",
               marginTop: "0",
+              ...(mobile ? textMobilePosition : textDesktopPosition),
             }}
           >
             Hi!
           </h1>
-          <h2
+
+          <h1
             style={{
-              paddingLeft: "10%",
               fontSize: "100px",
               marginTop: "0",
               color: Theme.colors.brand_400,
+              ...(mobile ? textMobilePosition : textDesktopPosition),
             }}
           >
             I'm Gabriel.
-          </h2>
-          <h3
+          </h1>
+          <h1
             style={{
-              paddingLeft: "10%",
               fontSize: "50px",
               marginTop: "0",
               width: "100%",
+              ...(mobile ? textMobilePosition : textDesktopPosition),
             }}
           >
             Be welcome to my portifolio!
-          </h3>
+          </h1>
         </span>
-
-        <div
-          style={{
-            backgroundColor: "white",
-            borderRadius: "200px",
-            width: "400px",
-            height: "400px",
-            position: "absolute",
-            left: "99%",
-            transform: "translateX(-99%)",
-          }}
-        ></div>
       </div>
 
       <span
@@ -62,30 +96,35 @@ export function Home() {
           alignItems: "baseline",
           flexDirection: "column",
           display: "flex",
+          height: "200px",
         }}
       >
-        <h3
+        <section
+          className={"CaretDown"}
           style={{
-            fontSize: "20px",
-            marginBottom: "0",
-            color: "white",
+            left: "46%",
             position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-46%)",
           }}
         >
-          Scroll-me
-        </h3>
-        <CaretDown
-          size={150}
-          style={{
-            color: Theme.colors.brand_400,
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
-          weight={"thin"}
-        />
+          <h3
+            style={{
+              fontSize: "20px",
+              color: "white",
+              textAlign: "center",
+            }}
+          >
+            scroll-me
+          </h3>
+
+          <CaretDown
+            size={100}
+            style={{
+              color: Theme.colors.brand_400,
+            }}
+            weight={"thin"}
+          />
+        </section>
       </span>
     </>
   );
