@@ -1,5 +1,4 @@
 import { Theme } from "../../theme";
-import { CaretDown } from "phosphor-react";
 import "./bounce.css";
 import {
   gifDesktopPosition,
@@ -7,31 +6,19 @@ import {
   textDesktopPosition,
   textMobilePosition,
 } from "./style";
-import {
-  batch,
-  Fade,
-  FadeIn,
-  Move,
-  Sticky,
-  StickyIn,
-  ZoomIn,
-} from "react-scroll-motion";
 
 interface homeProps {
   mobile: boolean;
   setSectionName: (sectionName: string | null) => void;
+  size: { height: number; width: number };
 }
 
-export function Home({ mobile, setSectionName }: homeProps) {
-  setSectionName(null);
-  const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
-  const FadeUp = batch(Fade(), Move(), Sticky());
+export function Home({ mobile, setSectionName, size }: homeProps) {
   return (
-    <>
+    <div style={{ width: `${size.width}px`, height: `${size.height}px` }}>
       <div
         className="animated-gif"
         style={{
-          marginTop: "20px",
           backgroundColor: "white",
           borderRadius: "200px",
           width: "400px",
@@ -39,57 +26,58 @@ export function Home({ mobile, setSectionName }: homeProps) {
           ...(mobile ? gifMobilePosition : gifDesktopPosition),
         }}
       ></div>
-
-      <div
+      <h1
         style={{
-          flexDirection: "row",
-          display: "flex",
-          paddingTop: "10px",
+          paddingLeft: "1%",
+
+          fontSize: "200px",
+          ...(mobile
+            ? textMobilePosition
+            : {
+                ...textDesktopPosition,
+                position: "absolute",
+                top: "5%",
+                transform: "translateY(-5%)",
+              }),
         }}
       >
-        <span
-          style={{
-            ...(mobile
-              ? {
-                  position: "relative",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }
-              : null),
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "200px",
-              marginTop: "0",
-              ...(mobile ? textMobilePosition : textDesktopPosition),
-            }}
-          >
-            Hi!
-          </h1>
+        Hi!
+      </h1>
 
-          <h1
-            style={{
-              fontSize: "100px",
-              marginTop: "0",
-              color: Theme.colors.brand_400,
-              ...(mobile ? textMobilePosition : textDesktopPosition),
-            }}
-          >
-            I'm Gabriel.
-          </h1>
-          <h1
-            style={{
-              fontSize: "50px",
-              marginTop: "0",
-              width: "100%",
-              ...(mobile ? textMobilePosition : textDesktopPosition),
-            }}
-          >
-            Be welcome to my portifolio!
-          </h1>
-        </span>
-      </div>
+      <h1
+        style={{
+          fontSize: "100px",
+          paddingLeft: "1%",
+
+          color: Theme.colors.brand_400,
+          ...(mobile
+            ? textMobilePosition
+            : {
+                ...textDesktopPosition,
+                position: "absolute",
+                top: "60%",
+                transform: "translateY(-60%)",
+              }),
+        }}
+      >
+        I'm Gabriel.
+      </h1>
+      <h1
+        style={{
+          fontSize: Theme.font.size.x_large,
+
+          ...(mobile
+            ? textMobilePosition
+            : {
+                ...textDesktopPosition,
+                position: "absolute",
+                top: "90%",
+                transform: "translateY(-90%)",
+              }),
+        }}
+      >
+        Be welcome to my portifolio!
+      </h1>
 
       <span
         style={{
@@ -98,34 +86,7 @@ export function Home({ mobile, setSectionName }: homeProps) {
           display: "flex",
           height: "200px",
         }}
-      >
-        <section
-          className={"CaretDown"}
-          style={{
-            left: "46%",
-            position: "absolute",
-            transform: "translateX(-46%)",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "20px",
-              color: "white",
-              textAlign: "center",
-            }}
-          >
-            scroll-me
-          </h3>
-
-          <CaretDown
-            size={100}
-            style={{
-              color: Theme.colors.brand_400,
-            }}
-            weight={"thin"}
-          />
-        </section>
-      </span>
-    </>
+      ></span>
+    </div>
   );
 }

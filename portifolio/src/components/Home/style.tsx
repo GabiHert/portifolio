@@ -12,8 +12,9 @@ export const gifDesktopPosition: React.CSSProperties = {
 };
 export const textDesktopPosition: React.CSSProperties = {
   textAlign: "left",
-  paddingLeft: "15%",
+  margin: 0,
 };
 export const textMobilePosition: React.CSSProperties = {
   textAlign: "center",
+  margin: 0,
 };
