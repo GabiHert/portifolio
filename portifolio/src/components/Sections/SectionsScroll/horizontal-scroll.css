@@ -1,13 +1,12 @@
 .wrapper {
     display:flex;
     overflow-x: auto;
+    padding-bottom: 10px;
 }
 
 
 .wrapper .section {
-
     border-radius:20px;
-    background-color: #dddddd;
     display: flex;
     justify-content: center;
     align-items:center;

@@ -1,20 +1,24 @@
 import React from "react";
 
-export const gifMobilePosition: React.CSSProperties = {
-  position: "relative",
-  left: "50%",
-  transform: "translateX(-50%)",
+export const orientationOnDesktop: React.CSSProperties = {
+  flexDirection: "row",
 };
-export const gifDesktopPosition: React.CSSProperties = {
-  position: "absolute",
-  left: "90%",
-  transform: "translateX(-90%)",
+export const orientationOnMobile: React.CSSProperties = {
+  flexDirection: "column",
 };
-export const textDesktopPosition: React.CSSProperties = {
-  textAlign: "left",
-  margin: 0,
+export const homeOnMobile: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
 };
-export const textMobilePosition: React.CSSProperties = {
+export const homeOnDesktop: React.CSSProperties = {};
+
+export const textOnMobile: React.CSSProperties = {
   textAlign: "center",
-  margin: 0,
+  margin: 30,
+};
+export const textOnDesktop: React.CSSProperties = {
+  textAlign: "left",
+  margin: 30,
 };

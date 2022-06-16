@@ -1,11 +1,14 @@
-import { Theme } from "../../theme";
 import "./bounce.css";
+import { Theme } from "../../theme";
 import {
-  gifDesktopPosition,
-  gifMobilePosition,
-  textDesktopPosition,
-  textMobilePosition,
+  homeOnDesktop,
+  homeOnMobile,
+  orientationOnDesktop,
+  orientationOnMobile,
+  textOnDesktop,
+  textOnMobile,
 } from "./style";
+import { Me } from "./me";
 
 interface homeProps {
   mobile: boolean;
@@ -15,78 +18,56 @@ interface homeProps {
 
 export function Home({ mobile, setSectionName, size }: homeProps) {
   return (
-    <div style={{ width: `${size.width}px`, height: `${size.height}px` }}>
+    <div
+      className="home"
+      style={{
+        width: `${size.width}px`,
+        minHeight: `${size.height}px`,
+        overflow: "hidden",
+
+        ...(mobile ? homeOnMobile : homeOnDesktop),
+      }}
+    >
       <div
-        className="animated-gif"
         style={{
-          backgroundColor: "white",
-          borderRadius: "200px",
-          width: "400px",
-          height: "400px",
-          ...(mobile ? gifMobilePosition : gifDesktopPosition),
-        }}
-      ></div>
-      <h1
-        style={{
-          paddingLeft: "1%",
-
-          fontSize: "200px",
-          ...(mobile
-            ? textMobilePosition
-            : {
-                ...textDesktopPosition,
-                position: "absolute",
-                top: "5%",
-                transform: "translateY(-5%)",
-              }),
+          display: "flex",
+          ...(mobile ? orientationOnMobile : orientationOnDesktop),
         }}
       >
-        Hi!
-      </h1>
-
+        {mobile ? <Me mobile={mobile} /> : null}
+        <span>
+          <h1
+            className="hi"
+            style={{
+              color: "black",
+              fontSize: "200px",
+              ...(mobile ? textOnMobile : textOnDesktop),
+            }}
+          >
+            Hi!
+          </h1>
+          <h1
+            className="im-gabriel"
+            style={{
+              color: Theme.colors.brand_400,
+              fontSize: Theme.font.size.xxx_large,
+              ...(mobile ? textOnMobile : textOnDesktop),
+            }}
+          >
+            I'm Gabriel.
+          </h1>
+        </span>
+        {!mobile ? <Me mobile={mobile} /> : null}
+      </div>
       <h1
+        className="welcome"
         style={{
-          fontSize: "100px",
-          paddingLeft: "1%",
-
-          color: Theme.colors.brand_400,
-          ...(mobile
-            ? textMobilePosition
-            : {
-                ...textDesktopPosition,
-                position: "absolute",
-                top: "60%",
-                transform: "translateY(-60%)",
-              }),
-        }}
-      >
-        I'm Gabriel.
-      </h1>
-      <h1
-        style={{
+          ...(mobile ? textOnMobile : textOnDesktop),
           fontSize: Theme.font.size.x_large,
-
-          ...(mobile
-            ? textMobilePosition
-            : {
-                ...textDesktopPosition,
-                position: "absolute",
-                top: "90%",
-                transform: "translateY(-90%)",
-              }),
         }}
       >
         Be welcome to my portifolio!
       </h1>
-
-      <span
-        style={{
-          alignItems: "baseline",
-          flexDirection: "column",
-          display: "flex",
-          height: "200px",
-        }}
-      ></span>
     </div>
   );
 }

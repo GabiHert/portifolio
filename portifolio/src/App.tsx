@@ -3,6 +3,11 @@ import { Header } from "./components/Header";
 import { Sections } from "./components/Sections";
 import { Home } from "./components/Home";
 import "./App.css";
+import { AboutMe } from "./components/AboutMe";
+import { Projects } from "./components/Projects";
+import { projects } from "../projects";
+import { Experience } from "./components/Experience";
+import { experience } from "../experience";
 
 function useWindowWidth() {
   const [size, setSize] = useState({
@@ -27,23 +32,41 @@ function useWindowWidth() {
 function App() {
   const [sectionName, setSectionName] = useState<string | null>(null);
 
+  const isMobile = useWindowWidth().width < 990;
   return (
     <>
       <Header sectionName={sectionName} />
-
       <Home
         setSectionName={(sectionName) => {
           setSectionName(sectionName);
         }}
-        mobile={useWindowWidth().width < 990}
+        mobile={isMobile}
         size={useWindowWidth()}
       />
       <Sections
         setSectionName={(sectionName) => {
           setSectionName(sectionName);
         }}
-        mobile={useWindowWidth().width < 990}
+        mobile={isMobile}
         size={useWindowWidth()}
+      />
+      <AboutMe
+        mobile={isMobile}
+        setSectionName={() => {}}
+        size={useWindowWidth()}
+      />
+      <Projects
+        projects={projects}
+        mobile={isMobile}
+        setSectionName={() => {}}
+        size={useWindowWidth()}
+      />
+
+      <Experience
+        mobile={isMobile}
+        setSectionName={() => {}}
+        size={useWindowWidth()}
+        experience={experience}
       />
     </>
   );

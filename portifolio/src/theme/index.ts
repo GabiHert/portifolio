@@ -10,8 +10,10 @@ export const Theme = {
   font: {
     size: {
       medium: "24px",
-      x_large: "50px",
       large: "35px",
+      x_large: "50px",
+      xx_large: "70px",
+      xxx_large: "100px",
     },
   },
 };

@@ -3,6 +3,9 @@ import { Theme } from "../../theme";
 
 export const textContainerMobile: React.CSSProperties = {
   flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  marginBottom: "50px",
 };
 export const textContainerDesktop: React.CSSProperties = {
   flexDirection: "row",
@@ -11,14 +14,9 @@ export const textContainerDesktop: React.CSSProperties = {
   alignItems: "center",
   marginBottom: "100px",
 };
-export const sectionDesktopStyle: React.CSSProperties = {
+export const sectionStyle: React.CSSProperties = {
+  minWidth: "300px",
   height: "300px",
-  width: "300px",
-  backgroundColor: Theme.colors.brand_800,
-  borderRadius: "20px",
-};
-
-export const sectionContainerDesktopStyle: React.CSSProperties = {
   color: Theme.colors.brand_300,
   fontSize: Theme.font.size.medium,
 };

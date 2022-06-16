@@ -1,0 +1,24 @@
+.topics {
+    display:flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+
+.topics .topic {
+    border-radius:20px;
+
+}
+
+.topics h3{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.topics h2{
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+

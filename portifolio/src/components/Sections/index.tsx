@@ -4,8 +4,9 @@ import {
   textContainerDesktop,
   textContainerMobile,
 } from "./style";
-import "./horizontal-scroll.css";
+import "./SectionsScroll/horizontal-scroll.css";
 import { useState } from "react";
+import { SectionsScroll } from "./SectionsScroll";
 
 interface sectionsProps {
   mobile: boolean;
@@ -23,7 +24,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
     useState(sectionNotOnHover);
 
   return (
-    <div style={{ width: `${size.width}px`, height: `${size.height}px` }}>
+    <div style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}>
       <section
         style={{
           display: "flex",
@@ -67,47 +68,20 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
           alignItems: "center",
         }}
       >
-        <div className="wrapper">
-          <div
-            className="section"
-            style={{
-              width: "300px",
-              minWidth: "300px",
-              height: "300px",
-              marginRight: "120px",
-            }}
-          >
-            About me
-          </div>
-          <div
-            className="section"
-            style={{
-              width: "300px",
-              minWidth: "300px",
-              height: "300px",
-              marginRight: "120px",
-            }}
-          >
-            Projects
-          </div>
-          <div
-            className="section"
-            style={{
-              width: "300px",
-              minWidth: "300px",
-              height: "300px",
-              marginRight: "120px",
-            }}
-          >
-            Experience
-          </div>
-          <div
-            className="section"
-            style={{ width: "300px", minWidth: "300px", height: "300px" }}
-          >
-            My Rocket Journey
-          </div>
-        </div>
+        <SectionsScroll
+          onAboutMePressed={() => {
+            console.log("FOOIII");
+          }}
+          onProjectsPressed={() => {
+            console.log("FOOIII2");
+          }}
+          onExperiencePressed={() => {
+            console.log("FOOIII3");
+          }}
+          onMyRocketJourneyPressed={() => {
+            console.log("FOOIII4");
+          }}
+        />
       </div>
     </div>
   );
