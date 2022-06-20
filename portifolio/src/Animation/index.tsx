@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export class Animation {
-  animate(selector: string, animation: string, wrapper: string) {
+  animateOnScroll(selector: string, animation: string, wrapper: string) {
     useEffect(() => {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -14,6 +14,14 @@ export class Animation {
         });
       });
       observer.observe(document.querySelector(wrapper));
+    }, []);
+  }
+
+  animate(selector: string, animation: string) {
+    useEffect(() => {
+      const target = document.querySelector(selector);
+      target.classList.add(animation);
+      //target.classList.remove(animation);
     }, []);
   }
 }

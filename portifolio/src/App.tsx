@@ -8,6 +8,8 @@ import { Projects } from "./components/Projects";
 import { projects } from "../projects";
 import { Experience } from "./components/Experience";
 import { experience } from "../experience";
+import { Loading } from "./components/Loading";
+import { Animation } from "./Animation";
 
 function useWindowWidth() {
   const [size, setSize] = useState({
@@ -33,39 +35,56 @@ function App() {
   const [sectionName, setSectionName] = useState<string | null>(null);
 
   const isMobile = useWindowWidth().width < 990;
-  return (
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleSectionNameChanged(sectionName: string) {
+    const animation = new Animation();
+    //  animation.animate(".section-name", "fade-out");
+
+    setSectionName(sectionName);
+  }
+
+  return isLoading ? (
+    <Loading size={useWindowWidth()} />
+  ) : (
     <>
       <Header sectionName={sectionName} />
       <div className={"container"}>
         <Home
           setSectionName={(sectionName) => {
-            setSectionName(sectionName);
+            handleSectionNameChanged(sectionName);
           }}
           mobile={isMobile}
           size={useWindowWidth()}
         />
         <Sections
           setSectionName={(sectionName) => {
-            setSectionName(sectionName);
+            handleSectionNameChanged(sectionName);
           }}
           mobile={isMobile}
           size={useWindowWidth()}
         />
         <AboutMe
           mobile={isMobile}
-          setSectionName={() => {}}
+          setSectionName={(sectionName) => {
+            handleSectionNameChanged(sectionName);
+          }}
           size={useWindowWidth()}
         />
         <Projects
           projects={projects}
           mobile={isMobile}
-          setSectionName={() => {}}
+          setSectionName={(sectionName) => {
+            handleSectionNameChanged(sectionName);
+          }}
           size={useWindowWidth()}
         />
 
         <Experience
           mobile={isMobile}
-          setSectionName={() => {}}
+          setSectionName={(sectionName) => {
+            handleSectionNameChanged(sectionName);
+          }}
           size={useWindowWidth()}
           experience={experience}
         />

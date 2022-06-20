@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Menu } from "@headlessui/react";
+
 import { Theme } from "././../../theme";
 import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
 import {
@@ -32,6 +34,7 @@ export function Header({ sectionName }: HeaderProps) {
   const [mailHoverStyle, setMailHoverStyle] = useState<React.CSSProperties>(
     notOnHoverSocialIconStyle
   );
+  const [isListPressed, setIsListPressed] = useState(false);
 
   return (
     <header
@@ -47,28 +50,64 @@ export function Header({ sectionName }: HeaderProps) {
         zIndex: 999,
       }}
     >
-      <List
-        onClick={() => {}}
-        style={{
-          ...hoverStyle,
-          alignSelf: "start",
-          marginTop: "1%",
-          position: "absolute",
-          left: "1%",
-          transform: "translateX(-1%)",
-        }}
-        className="list"
-        size={30}
-        onMouseEnter={() => {
-          setHoverStyle(onHoverListStyle);
-        }}
-        onMouseLeave={() => {
-          setHoverStyle(notHoverListStyle);
-        }}
-      />
+      <Menu as={"div"}>
+        <Menu.Button as={"div"}>
+          <List
+            style={{
+              ...hoverStyle,
+              alignSelf: "start",
+              marginTop: "1%",
+              position: "absolute",
+              left: "1%",
+              transform: "translateX(-1%)",
+            }}
+            className="list"
+            size={30}
+            onMouseEnter={() => {
+              setHoverStyle(onHoverListStyle);
+            }}
+            onMouseLeave={() => {
+              setHoverStyle(notHoverListStyle);
+            }}
+          />
+        </Menu.Button>
+        <Menu.Items
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingLeft: "100px",
+            flexDirection: "column",
+            marginTop: "50px",
+            padding: "10px",
+            borderRadius: "10px",
+            backgroundColor: "white",
+          }}
+        >
+          <Menu.Item
+            as={"div"}
+            style={{ width: "100%", background: "black", borderRadius: "10px" }}
+          >
+            {({ active }) => (
+              <a
+                style={{
+                  padding: "5px",
+                }}
+                href="/account-settings"
+              >
+                Sections
+              </a>
+            )}
+          </Menu.Item>{" "}
+          <Menu.Item disabled>
+            <span className="opacity-75">Invite a friend (coming soon!)</span>
+          </Menu.Item>
+        </Menu.Items>
+      </Menu>
 
       {sectionName ? (
         <span
+          className={"section-name"}
           style={{
             backgroundColor: Theme.colors.brand_400,
             borderRadius: 30,
