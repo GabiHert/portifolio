@@ -1,18 +1,18 @@
-.projects h1{
+.experience-container h1{
     color: white;
     font-size:35px
 }
 
-.projects h2{
+.experience-container h2{
     color: white;
     font-size: 24px
 }
 
-.projects h3{
+.experience-container h3{
     color: white;
     font-size: 20px
 }
 
-.projects a{
+.experience-container a{
     color: #B935DD;
 }

@@ -36,38 +36,40 @@ function App() {
   return (
     <>
       <Header sectionName={sectionName} />
-      <Home
-        setSectionName={(sectionName) => {
-          setSectionName(sectionName);
-        }}
-        mobile={isMobile}
-        size={useWindowWidth()}
-      />
-      <Sections
-        setSectionName={(sectionName) => {
-          setSectionName(sectionName);
-        }}
-        mobile={isMobile}
-        size={useWindowWidth()}
-      />
-      <AboutMe
-        mobile={isMobile}
-        setSectionName={() => {}}
-        size={useWindowWidth()}
-      />
-      <Projects
-        projects={projects}
-        mobile={isMobile}
-        setSectionName={() => {}}
-        size={useWindowWidth()}
-      />
+      <div className={"container"}>
+        <Home
+          setSectionName={(sectionName) => {
+            setSectionName(sectionName);
+          }}
+          mobile={isMobile}
+          size={useWindowWidth()}
+        />
+        <Sections
+          setSectionName={(sectionName) => {
+            setSectionName(sectionName);
+          }}
+          mobile={isMobile}
+          size={useWindowWidth()}
+        />
+        <AboutMe
+          mobile={isMobile}
+          setSectionName={() => {}}
+          size={useWindowWidth()}
+        />
+        <Projects
+          projects={projects}
+          mobile={isMobile}
+          setSectionName={() => {}}
+          size={useWindowWidth()}
+        />
 
-      <Experience
-        mobile={isMobile}
-        setSectionName={() => {}}
-        size={useWindowWidth()}
-        experience={experience}
-      />
+        <Experience
+          mobile={isMobile}
+          setSectionName={() => {}}
+          size={useWindowWidth()}
+          experience={experience}
+        />
+      </div>
     </>
   );
 }

@@ -9,7 +9,7 @@ export const onHoverListStyle: React.CSSProperties = {
 };
 
 export const onHoverSocialStyle: React.CSSProperties = {
-  minWidth: "20%",
+  minWidth: "200px",
 };
 export const notHoverSocialStyle: React.CSSProperties = {
   minWidth: "1%",

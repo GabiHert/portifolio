@@ -2,6 +2,7 @@ import { ExperienceScroll } from "./ExperienceScroll";
 import { Theme } from "../../theme";
 import HTMLReactParser from "html-react-parser";
 import "./experiencesStyle.css";
+import { Animation } from "../../Animation";
 
 interface experienceProps {
   mobile: boolean;
@@ -16,60 +17,77 @@ export function Experience({
   size,
   experience,
 }: experienceProps) {
+  const experienceAnimation = new Animation();
+  experienceAnimation.animate(".experience", "fade-in", ".experience-wrapper");
+
+  const previousExperienceAnimation = new Animation();
+  previousExperienceAnimation.animate(
+    ".previous-experience",
+    "slide-left",
+    ".previous-experience-wrapper"
+  );
+
   return (
-    <div
-      style={{
-        width: `${size.width}px`,
-        minHeight: `${size.height}px`,
-      }}
-    >
-      <h1
-        style={{
-          textAlign: "center",
-          marginBottom: "100px",
-          fontSize: Theme.font.size.x_large,
-          color: Theme.colors.brand_400,
-        }}
-      >
-        I had previous experience with...
-      </h1>
+    <div className={"experience-wrapper"}>
       <div
+        className="experience"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginBottom: "100px",
+          width: `${size.width}px`,
+          minHeight: `${size.height}px`,
         }}
       >
-        <ExperienceScroll />
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
-        {Object.entries(experience).map(([key, value]) => {
-          return (
-            <div
-              className={"projects"}
-              style={{
-                width: "82%",
-                minHeight: "200px",
-                background: Theme.colors.brand_800,
-                wordWrap: "break-word",
-                padding: "10px",
-                borderRadius: "20px",
-                marginBottom: "100px",
-                color: "white",
-              }}
-            >
-              {HTMLReactParser(value as string)}
-            </div>
-          );
-        })}
+        <div className="previous-experience-wrapper">
+          <h1
+            className={"previous-experience"}
+            style={{
+              textAlign: "center",
+              marginBottom: "100px",
+              fontSize: Theme.font.size.x_large,
+              color: Theme.colors.brand_400,
+            }}
+          >
+            I had previous experience with...
+          </h1>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "100px",
+          }}
+        >
+          <ExperienceScroll />
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          {Object.entries(experience).map(([key, value]) => {
+            return (
+              <div
+                className={"experience-container"}
+                style={{
+                  width: "82%",
+                  minHeight: "200px",
+                  background: Theme.colors.brand_800,
+                  wordWrap: "break-word",
+                  padding: "10px",
+                  borderRadius: "20px",
+                  marginBottom: "100px",
+                  color: "white",
+                }}
+              >
+                {HTMLReactParser(value as string)}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

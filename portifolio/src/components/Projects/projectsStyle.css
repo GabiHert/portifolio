@@ -1,18 +1,18 @@
-.projects h1{
+.projects-container h1{
     color: white;
     font-size:35px
 }
 
-.projects h2{
+.projects-container h2{
     color: white;
     font-size: 24px
 }
 
-.projects h3{
+.projects-container h3{
     color: white;
     font-size: 20px
 }
 
-.projects a{
+.projects-container a{
     color: #B935DD;
 }

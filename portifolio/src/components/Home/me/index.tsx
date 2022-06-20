@@ -1,9 +1,11 @@
 import me from "../../../assets/me.mp4";
+import React from "react";
 
 interface meProps {
   mobile: boolean;
+  style?: React.CSSProperties;
 }
-export function Me({ mobile }: meProps) {
+export function Me({ mobile, style }: meProps) {
   return (
     <video
       className="me-video"
@@ -13,12 +15,16 @@ export function Me({ mobile }: meProps) {
       src={me}
       loop={true}
       style={{
+        borderColor: "white",
+        borderStyle: "solid",
+        overflow: "hidden",
         width: "300px",
         height: "300px",
         borderRadius: "300px",
         background: "black",
         marginTop: "30px",
-        ...(mobile ? { alignSelf: "center" } : { marginLeft: "25%" }),
+        ...style,
+        ...(mobile ? { alignSelf: "center" } : {}),
       }}
     />
   );

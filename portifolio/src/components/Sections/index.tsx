@@ -7,6 +7,7 @@ import {
 import "./SectionsScroll/horizontal-scroll.css";
 import { useState } from "react";
 import { SectionsScroll } from "./SectionsScroll";
+import { Animation } from "../../Animation";
 
 interface sectionsProps {
   mobile: boolean;
@@ -23,65 +24,96 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
   const [myRocketJourneyHoverStyle, setMyRocketJourneyHoverStyle] =
     useState(sectionNotOnHover);
 
+  const sectionsAnimation = new Animation();
+  sectionsAnimation.animate(".sections", "fade-in", ".sections-wrapper");
+  const selectASectionAnimation = new Animation();
+  selectASectionAnimation.animate(
+    ".select-a-section",
+    "slide-left",
+    ".select-a-section-wrapper"
+  );
+  const orAnimation = new Animation();
+  orAnimation.animate(".or", "slide-left", ".or-wrapper");
+  const keepScrollingAnimation = new Animation();
+  keepScrollingAnimation.animate(
+    ".keep-scrolling",
+    "slide-left",
+    ".keep-scrolling-wrapper"
+  );
+
   return (
-    <div style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}>
-      <section
-        style={{
-          display: "flex",
-
-          ...(mobile ? textContainerMobile : textContainerDesktop),
-        }}
-      >
-        <h1
-          style={{
-            color: Theme.colors.brand_300,
-            paddingLeft: "10px",
-            fontSize: Theme.font.size.large,
-          }}
-        >
-          Select a section
-        </h1>
-        <h1
-          style={{
-            color: Theme.colors.brand_400,
-            paddingLeft: "10px",
-            fontSize: Theme.font.size.large,
-          }}
-        >
-          or
-        </h1>
-        <h1
-          style={{
-            color: Theme.colors.brand_300,
-            paddingLeft: "10px",
-            fontSize: Theme.font.size.large,
-          }}
-        >
-          keep scrolling
-        </h1>
-      </section>
-
+    <div className={"sections-wrapper"}>
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className={"sections"}
+        style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}
       >
-        <SectionsScroll
-          onAboutMePressed={() => {
-            console.log("FOOIII");
+        <section
+          style={{
+            display: "flex",
+
+            ...(mobile ? textContainerMobile : textContainerDesktop),
           }}
-          onProjectsPressed={() => {
-            console.log("FOOIII2");
+        >
+          <div className={"select-a-section-wrapper"}>
+            <h1
+              className={"select-a-section"}
+              style={{
+                color: Theme.colors.brand_300,
+                paddingLeft: "10px",
+                fontSize: Theme.font.size.large,
+              }}
+            >
+              Select a section
+            </h1>
+          </div>
+          <div className={"or-wrapper"}>
+            <h1
+              className={"or"}
+              style={{
+                color: Theme.colors.brand_400,
+                paddingLeft: "10px",
+                fontSize: Theme.font.size.large,
+              }}
+            >
+              or
+            </h1>
+          </div>
+          <div className={"keep-scrolling-wrapper"}>
+            <h1
+              className={"keep-scrolling"}
+              style={{
+                color: Theme.colors.brand_300,
+                paddingLeft: "10px",
+                fontSize: Theme.font.size.large,
+              }}
+            >
+              keep scrolling
+            </h1>
+          </div>
+        </section>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
-          onExperiencePressed={() => {
-            console.log("FOOIII3");
-          }}
-          onMyRocketJourneyPressed={() => {
-            console.log("FOOIII4");
-          }}
-        />
+        >
+          <SectionsScroll
+            onAboutMePressed={() => {
+              console.log("FOOIII");
+            }}
+            onProjectsPressed={() => {
+              console.log("FOOIII2");
+            }}
+            onExperiencePressed={() => {
+              console.log("FOOIII3");
+            }}
+            onMyRocketJourneyPressed={() => {
+              console.log("FOOIII4");
+            }}
+          />
+        </div>
       </div>
     </div>
   );

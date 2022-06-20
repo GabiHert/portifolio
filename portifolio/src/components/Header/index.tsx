@@ -104,6 +104,8 @@ export function Header({ sectionName }: HeaderProps) {
           transitionProperty: "all",
           maxWidth: "20%",
           transitionDuration: "700ms",
+          alignItems: "center",
+          justifyContent: "center",
           ...socialHoverStyle,
         }}
         onMouseEnter={() => {
@@ -123,6 +125,8 @@ export function Header({ sectionName }: HeaderProps) {
                 marginRight: "10%",
                 color: Theme.colors.brand_300,
                 height: "100%",
+                maxWidth: "45px",
+
                 ...mailHoverStyle,
               }}
               size="100%"
@@ -139,6 +143,7 @@ export function Header({ sectionName }: HeaderProps) {
                 borderRadius: "20px",
                 marginRight: "10%",
                 height: "100%",
+                maxWidth: "45px",
                 color: Theme.colors.brand_300,
                 ...linkedInHoverStyle,
               }}
@@ -155,6 +160,8 @@ export function Header({ sectionName }: HeaderProps) {
               style={{
                 borderRadius: "20px",
                 height: "100%",
+                maxWidth: "45px",
+
                 color: Theme.colors.brand_300,
                 ...gitHoverStyle,
               }}
@@ -169,7 +176,7 @@ export function Header({ sectionName }: HeaderProps) {
             />
           </>
         ) : (
-          <text style={{ paddingTop: "7px" }}>Social</text>
+          <>Social</>
         )}
       </span>
     </header>

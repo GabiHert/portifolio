@@ -18,3 +18,32 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #C28CD1;
 }
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+
+    }
+
+}@keyframes fade {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+
+    }
+
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .slide-left {
+        animation: slide-in 1s 1;
+    }
+}@media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+        animation: fade 2s 1;
+    }
+}
