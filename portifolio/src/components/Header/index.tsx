@@ -6,7 +6,9 @@ import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
 import {
   notHoverListStyle,
   notHoverSocialStyle,
+  notOnHoverListSectionStyle,
   notOnHoverSocialIconStyle,
+  onHoverListSectionStyle,
   onHoverListStyle,
   onHoverSocialIconStyle,
   onHoverSocialStyle,
@@ -34,7 +36,13 @@ export function Header({ sectionName }: HeaderProps) {
   const [mailHoverStyle, setMailHoverStyle] = useState<React.CSSProperties>(
     notOnHoverSocialIconStyle
   );
-  const [isListPressed, setIsListPressed] = useState(false);
+
+  const [isListSectionsOnHover, setIsListSectionsOnHover] = useState(false);
+  const [isListAboutMeOnHover, setIsListAboutMeOnHover] = useState(false);
+  const [isListProjectsOnHover, setIsListProjectsOnHover] = useState(false);
+  const [isListExperienceOnHover, setIsListExperienceOnHover] = useState(false);
+  const [isListMyRocketJourneyOnHover, setIsListMyRocketJourneyOnHover] =
+    useState(false);
 
   return (
     <header
@@ -71,6 +79,7 @@ export function Header({ sectionName }: HeaderProps) {
             }}
           />
         </Menu.Button>
+
         <Menu.Items
           style={{
             display: "flex",
@@ -79,28 +88,138 @@ export function Header({ sectionName }: HeaderProps) {
             paddingLeft: "100px",
             flexDirection: "column",
             marginTop: "50px",
+            marginLeft: "15px",
             padding: "10px",
             borderRadius: "10px",
+            outline: "none",
             backgroundColor: "white",
+            width: "200px",
           }}
         >
           <Menu.Item
             as={"div"}
-            style={{ width: "100%", background: "black", borderRadius: "10px" }}
+            style={{
+              ...(isListSectionsOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListSectionsOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListSectionsOnHover(false);
+            }}
           >
-            {({ active }) => (
-              <a
-                style={{
-                  padding: "5px",
-                }}
-                href="/account-settings"
-              >
-                Sections
-              </a>
-            )}
+            <a
+              style={{
+                padding: "5px",
+                color: "black",
+                textDecoration: "none",
+              }}
+              href="/account-settings"
+            >
+              • Sections
+            </a>
+          </Menu.Item>
+          <Menu.Item
+            as={"div"}
+            style={{
+              ...(isListAboutMeOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListAboutMeOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListAboutMeOnHover(false);
+            }}
+          >
+            <a
+              style={{
+                padding: "5px",
+                color: "black",
+                textDecoration: "none",
+              }}
+              href="/account-settings"
+            >
+              • About me
+            </a>
+          </Menu.Item>
+          <Menu.Item
+            as={"div"}
+            style={{
+              ...(isListProjectsOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListProjectsOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListProjectsOnHover(false);
+            }}
+          >
+            <a
+              style={{
+                padding: "5px",
+                color: "black",
+                textDecoration: "none",
+              }}
+              href="/account-settings"
+            >
+              • Projects
+            </a>
+          </Menu.Item>
+          <Menu.Item
+            as={"div"}
+            style={{
+              ...(isListExperienceOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListExperienceOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListExperienceOnHover(false);
+            }}
+          >
+            <a
+              style={{
+                padding: "5px",
+                color: "black",
+                textDecoration: "none",
+              }}
+              href="/account-settings"
+            >
+              • Experience
+            </a>
           </Menu.Item>{" "}
-          <Menu.Item disabled>
-            <span className="opacity-75">Invite a friend (coming soon!)</span>
+          <Menu.Item
+            as={"div"}
+            style={{
+              ...(isListMyRocketJourneyOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListMyRocketJourneyOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListMyRocketJourneyOnHover(false);
+            }}
+          >
+            <a
+              style={{
+                padding: "5px",
+                color: "black",
+                textDecoration: "none",
+              }}
+              href="/account-settings"
+            >
+              • My Rocket Journey
+            </a>
           </Menu.Item>
         </Menu.Items>
       </Menu>

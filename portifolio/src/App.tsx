@@ -89,6 +89,16 @@ function App() {
           experience={experience}
         />
       </div>
+      <h3
+        style={{
+          fontSize: "10px",
+          position: "absolute",
+          left: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        Made with ❤️ by Gabriel Guinter Herter
+      </h3>
     </>
   );
 }

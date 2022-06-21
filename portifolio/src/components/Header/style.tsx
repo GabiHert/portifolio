@@ -21,3 +21,18 @@ export const onHoverSocialIconStyle: React.CSSProperties = {
 export const notOnHoverSocialIconStyle: React.CSSProperties = {
   backgroundColor: Theme.colors.brand_800,
 };
+
+export const notOnHoverListSectionStyle: React.CSSProperties = {
+  width: "100%",
+  background: "white",
+  borderRadius: "5px",
+  height: "30px",
+  marginBottom: "10px",
+};
+export const onHoverListSectionStyle: React.CSSProperties = {
+  width: "100%",
+  background: "#EDEDED",
+  borderRadius: "5px",
+  height: "30px",
+  marginBottom: "10px",
+};
