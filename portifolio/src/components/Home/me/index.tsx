@@ -15,9 +15,9 @@ export function Me({ mobile, style }: meProps) {
       src={me}
       loop={true}
       style={{
+        alignItems: "center",
         borderColor: "white",
         borderStyle: "solid",
-        overflow: "hidden",
         width: "300px",
         height: "300px",
         borderRadius: "300px",

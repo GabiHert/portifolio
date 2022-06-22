@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Header } from "./components/Header";
 import { Sections } from "./components/Sections";
 import { Home } from "./components/Home";
 import "./App.css";
@@ -9,7 +8,7 @@ import { projects } from "../projects";
 import { Experience } from "./components/Experience";
 import { experience } from "../experience";
 import { Loading } from "./components/Loading";
-import { Animation } from "./Animation";
+import { Header } from "./components/Header";
 
 function useWindowWidth() {
   const [size, setSize] = useState({
@@ -28,6 +27,7 @@ function useWindowWidth() {
     };
   }, []);
 
+  size.height = size.height + 10;
   return size;
 }
 
@@ -38,9 +38,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSectionNameChanged(sectionName: string) {
-    const animation = new Animation();
-    //  animation.animate(".section-name", "fade-out");
-
     setSectionName(sectionName);
   }
 

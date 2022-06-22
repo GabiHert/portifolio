@@ -18,6 +18,11 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #C28CD1;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 @keyframes slide-in {
     0% {
         transform: translateX(-100%);

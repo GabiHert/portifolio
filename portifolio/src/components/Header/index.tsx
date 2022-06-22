@@ -37,6 +37,7 @@ export function Header({ sectionName }: HeaderProps) {
     notOnHoverSocialIconStyle
   );
 
+  const [isListHomeOnHover, setIsListHomeOnHover] = useState(false);
   const [isListSectionsOnHover, setIsListSectionsOnHover] = useState(false);
   const [isListAboutMeOnHover, setIsListAboutMeOnHover] = useState(false);
   const [isListProjectsOnHover, setIsListProjectsOnHover] = useState(false);
@@ -48,7 +49,7 @@ export function Header({ sectionName }: HeaderProps) {
     <header
       style={{
         background: Theme.colors.brand_800,
-        height: "70px",
+        height: "75px",
         borderBottomRightRadius: 11,
         borderBottomLeftRadius: 11,
         flexDirection: "row",
@@ -59,7 +60,7 @@ export function Header({ sectionName }: HeaderProps) {
       }}
     >
       <Menu as={"div"}>
-        <Menu.Button as={"div"}>
+        <Menu.Button as={"section"}>
           <List
             style={{
               ...hoverStyle,
@@ -90,14 +91,32 @@ export function Header({ sectionName }: HeaderProps) {
             marginTop: "50px",
             marginLeft: "15px",
             padding: "10px",
-            borderRadius: "10px",
+            borderRadius: "9px",
             outline: "none",
             backgroundColor: "white",
             width: "200px",
           }}
         >
           <Menu.Item
-            as={"div"}
+            as={"a"}
+            href={"#home"}
+            style={{
+              ...(isListHomeOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListHomeOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListHomeOnHover(false);
+            }}
+          >
+            • home
+          </Menu.Item>
+          <Menu.Item
+            as={"a"}
+            href={"#sections"}
             style={{
               ...(isListSectionsOnHover
                 ? onHoverListSectionStyle
@@ -110,19 +129,11 @@ export function Header({ sectionName }: HeaderProps) {
               setIsListSectionsOnHover(false);
             }}
           >
-            <a
-              style={{
-                padding: "5px",
-                color: "black",
-                textDecoration: "none",
-              }}
-              href="/account-settings"
-            >
-              • Sections
-            </a>
+            • Sections
           </Menu.Item>
           <Menu.Item
-            as={"div"}
+            as={"a"}
+            href={"#about-me"}
             style={{
               ...(isListAboutMeOnHover
                 ? onHoverListSectionStyle
@@ -135,19 +146,11 @@ export function Header({ sectionName }: HeaderProps) {
               setIsListAboutMeOnHover(false);
             }}
           >
-            <a
-              style={{
-                padding: "5px",
-                color: "black",
-                textDecoration: "none",
-              }}
-              href="/account-settings"
-            >
-              • About me
-            </a>
+            • About me
           </Menu.Item>
           <Menu.Item
-            as={"div"}
+            as={"a"}
+            href={"#projects"}
             style={{
               ...(isListProjectsOnHover
                 ? onHoverListSectionStyle
@@ -160,19 +163,11 @@ export function Header({ sectionName }: HeaderProps) {
               setIsListProjectsOnHover(false);
             }}
           >
-            <a
-              style={{
-                padding: "5px",
-                color: "black",
-                textDecoration: "none",
-              }}
-              href="/account-settings"
-            >
-              • Projects
-            </a>
+            • Projects
           </Menu.Item>
           <Menu.Item
-            as={"div"}
+            as={"a"}
+            href="#experience"
             style={{
               ...(isListExperienceOnHover
                 ? onHoverListSectionStyle
@@ -185,19 +180,11 @@ export function Header({ sectionName }: HeaderProps) {
               setIsListExperienceOnHover(false);
             }}
           >
-            <a
-              style={{
-                padding: "5px",
-                color: "black",
-                textDecoration: "none",
-              }}
-              href="/account-settings"
-            >
-              • Experience
-            </a>
-          </Menu.Item>{" "}
+            • Experience
+          </Menu.Item>
           <Menu.Item
-            as={"div"}
+            as={"a"}
+            href={"#my-rocket-journey"}
             style={{
               ...(isListMyRocketJourneyOnHover
                 ? onHoverListSectionStyle
@@ -210,16 +197,7 @@ export function Header({ sectionName }: HeaderProps) {
               setIsListMyRocketJourneyOnHover(false);
             }}
           >
-            <a
-              style={{
-                padding: "5px",
-                color: "black",
-                textDecoration: "none",
-              }}
-              href="/account-settings"
-            >
-              • My Rocket Journey
-            </a>
+            • My Rocket Journey
           </Menu.Item>
         </Menu.Items>
       </Menu>
@@ -256,8 +234,10 @@ export function Header({ sectionName }: HeaderProps) {
           paddingBottom: "2px",
           position: "absolute",
           left: "99%",
+          border: "none",
           transform: "translateX(-99%)",
           flexDirection: "row",
+          userSelect: "none",
           display: "flex",
           transitionProperty: "all",
           maxWidth: "20%",

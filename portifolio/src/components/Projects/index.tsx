@@ -51,8 +51,8 @@ export function Projects({
 
   return (
     <>
-      <section className={"projects-start"}></section>
       <div className={"projects-wrapper"}>
+        <section className={"projects-start"} id={"projects"}></section>
         <div
           className="projects"
           style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}

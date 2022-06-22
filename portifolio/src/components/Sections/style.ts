@@ -15,6 +15,7 @@ export const textContainerDesktop: React.CSSProperties = {
   marginBottom: "100px",
 };
 export const sectionStyle: React.CSSProperties = {
+  textDecoration: "none",
   minWidth: "300px",
   height: "300px",
   color: Theme.colors.brand_300,
@@ -27,3 +28,5 @@ export const sectionOnHover: React.CSSProperties = {
 export const sectionNotOnHover: React.CSSProperties = {
   background: Theme.colors.brand_800,
 };
+
+export {};

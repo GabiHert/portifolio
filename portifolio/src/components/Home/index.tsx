@@ -51,8 +51,9 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
 
   return (
     <>
-      <section className={"home-start"}></section>
       <div className={"home-wrapper"}>
+        <section className={"home-start"} id={"home"}></section>
+
         <div
           className="home"
           style={{

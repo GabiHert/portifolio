@@ -25,14 +25,25 @@ export const notOnHoverSocialIconStyle: React.CSSProperties = {
 export const notOnHoverListSectionStyle: React.CSSProperties = {
   width: "100%",
   background: "white",
-  borderRadius: "5px",
+  borderRadius: "0px",
+  borderBottomStyle: "solid",
+  borderWidth: "1px",
+  borderColor: "#EDEDED",
   height: "30px",
   marginBottom: "10px",
+  textDecoration: "none",
+  color: "black",
 };
 export const onHoverListSectionStyle: React.CSSProperties = {
   width: "100%",
   background: "#EDEDED",
+  borderBottomStyle: "solid",
+  borderColor: "#EDEDED",
+  borderWidth: "1px",
   borderRadius: "5px",
   height: "30px",
   marginBottom: "10px",
+  textDecoration: "none",
+  color: "black",
 };
+export {};

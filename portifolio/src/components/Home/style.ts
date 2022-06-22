@@ -22,3 +22,5 @@ export const textOnDesktop: React.CSSProperties = {
   textAlign: "left",
   margin: 30,
 };
+
+export {};

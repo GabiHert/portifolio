@@ -59,11 +59,14 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
 
   return (
     <>
-      <section className={"section-start"}></section>
       <div className={"sections-wrapper"}>
+        <section className={"section-start"} id={"sections"}></section>
         <div
           className={"sections"}
-          style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}
+          style={{
+            width: `${size.width}px`,
+            minHeight: `${size.height}px`,
+          }}
         >
           <section
             style={{

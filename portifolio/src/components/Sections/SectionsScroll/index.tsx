@@ -25,7 +25,7 @@ export function SectionsScroll({
 
   return (
     <div className="wrapper">
-      <div
+      <a
         className="section"
         style={{
           marginRight: "120px",
@@ -38,11 +38,11 @@ export function SectionsScroll({
         onMouseLeave={() => {
           setAboutMeHoverStyle(sectionNotOnHover);
         }}
-        onClick={() => onAboutMePressed()}
+        href={"#about-me"}
       >
         About me
-      </div>
-      <div
+      </a>
+      <a
         className="section"
         style={{
           ...sectionStyle,
@@ -55,11 +55,11 @@ export function SectionsScroll({
         onMouseLeave={() => {
           setProjectsHoverStyle(sectionNotOnHover);
         }}
-        onClick={() => onProjectsPressed()}
+        href={"#projects"}
       >
         Projects
-      </div>
-      <div
+      </a>
+      <a
         className="section"
         style={{
           ...sectionStyle,
@@ -72,11 +72,11 @@ export function SectionsScroll({
         onMouseLeave={() => {
           setExperienceHoverStyle(sectionNotOnHover);
         }}
-        onClick={() => onExperiencePressed()}
+        href={"#experience"}
       >
         Experience
-      </div>
-      <div
+      </a>
+      <a
         className="section"
         style={{
           ...sectionStyle,
@@ -88,10 +88,10 @@ export function SectionsScroll({
         onMouseLeave={() => {
           setMyRocketJourneyHoverStyle(sectionNotOnHover);
         }}
-        onClick={() => onMyRocketJourneyPressed()}
+        href={"#my-rocket-journey"}
       >
         My Rocket Journey
-      </div>
+      </a>
     </div>
   );
 }

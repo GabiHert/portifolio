@@ -46,8 +46,8 @@ export function Experience({
 
   return (
     <>
-      <section className={"experience-start"}></section>
       <div className={"experience-wrapper"}>
+        <section className={"experience-start"} id={"experience"}></section>
         <div
           className="experience"
           style={{

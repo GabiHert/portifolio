@@ -47,8 +47,8 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
 
   return (
     <>
-      <section className={"about-me-start"}></section>
       <div className={"about-me-wrapper"}>
+        <section className={"about-me-start"} id={"about-me"}></section>
         <div
           className="about-me"
           style={{ width: `${size.width}px`, minHeight: `${size.height}px` }}
