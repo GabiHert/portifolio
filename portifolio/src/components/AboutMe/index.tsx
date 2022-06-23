@@ -1,6 +1,7 @@
 import { Theme } from "../../theme";
 import { Animation } from "../../Animation";
 import { useEffect } from "react";
+import { CONFIG } from "../../config/config";
 
 interface aboutMeProps {
   mobile: boolean;
@@ -61,13 +62,20 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
               alignItems: "center",
             }}
           >
-            <div className={"back-end-developer-wrapper"}>
+            <div
+              className={"back-end-developer-wrapper"}
+              style={{ maxWidth: size.width }}
+            >
               <h1
                 className={"back-end-developer"}
                 style={{
                   letterSpacing: "10px",
                   color: Theme.colors.brand_400,
-                  fontSize: Theme.font.size.xxx_large,
+                  ...(size.width < CONFIG.FONT_SIZE.LIMIT
+                    ? { fontSize: Theme.font.size.x_large }
+                    : {
+                        fontSize: Theme.font.size.xxx_large,
+                      }),
                   textAlign: "center",
                 }}
               >
@@ -81,8 +89,11 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
                   letterSpacing: "5px",
                   color: "black",
                   textAlign: "center",
-
-                  fontSize: Theme.font.size.xx_large,
+                  ...(size.width < CONFIG.FONT_SIZE.LIMIT
+                    ? { fontSize: Theme.font.size.x_large }
+                    : {
+                        fontSize: Theme.font.size.xx_large,
+                      }),
                 }}
               >
                 Creative
@@ -95,7 +106,11 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
                   color: Theme.colors.brand_400,
                   textAlign: "center",
                   letterSpacing: "3px",
-                  fontSize: Theme.font.size.x_large,
+                  ...(size.width < CONFIG.FONT_SIZE.LIMIT
+                    ? { fontSize: Theme.font.size.large }
+                    : {
+                        fontSize: Theme.font.size.x_large,
+                      }),
                 }}
               >
                 Proactive
@@ -115,7 +130,7 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
                 color: Theme.colors.brand_300,
                 fontSize: Theme.font.size.medium,
                 textAlign: "center",
-                maxWidth: "900px",
+                maxWidth: size.width - 20,
                 lineHeight: "160%",
               }}
             >

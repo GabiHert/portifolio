@@ -45,8 +45,8 @@ function App() {
     <Loading size={useWindowWidth()} />
   ) : (
     <>
-      <Header sectionName={sectionName} />
-      <div className={"container"}>
+      <Header sectionName={sectionName} size={useWindowWidth()} />
+      <div className={"container"} style={{ maxWidth: useWindowWidth().width }}>
         <Home
           setSectionName={(sectionName) => {
             handleSectionNameChanged(sectionName);

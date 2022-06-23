@@ -16,9 +16,10 @@ import {
 
 interface HeaderProps {
   sectionName: string | null;
+  size: { height: number; width: number };
 }
 
-export function Header({ sectionName }: HeaderProps) {
+export function Header({ sectionName, size }: HeaderProps) {
   const [hoverStyle, setHoverStyle] =
     useState<React.CSSProperties>(notHoverListStyle);
   const [isSocialOnHover, setIsSocialOnHover] = useState<boolean>(false);
@@ -48,6 +49,7 @@ export function Header({ sectionName }: HeaderProps) {
   return (
     <header
       style={{
+        width: size.width,
         background: Theme.colors.brand_800,
         height: "75px",
         borderBottomRightRadius: 11,
@@ -56,7 +58,7 @@ export function Header({ sectionName }: HeaderProps) {
         display: "flex",
         position: "sticky",
         top: 0,
-        zIndex: 999,
+        zIndex: 9,
       }}
     >
       <Menu as={"div"}>

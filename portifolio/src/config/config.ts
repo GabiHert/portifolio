@@ -4,6 +4,7 @@ export const CONFIG = {
     GITHUB: "",
     EMAIL: "",
   },
+  FONT_SIZE: { LIMIT: 560 },
 };
 
 export {};

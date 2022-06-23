@@ -12,6 +12,7 @@ import {
 import { Me } from "./me";
 import { Animation } from "../../Animation";
 import { useEffect } from "react";
+import { CONFIG } from "../../config/config";
 
 interface homeProps {
   mobile: boolean;
@@ -51,15 +52,14 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
 
   return (
     <>
-      <div className={"home-wrapper"}>
+      <div className={"home-wrapper"} style={{ maxWidth: size.width }}>
         <section className={"home-start"} id={"home"}></section>
 
         <div
           className="home"
           style={{
-            width: `${size.width}px`,
+            maxWidth: `${size.width}px`,
             minHeight: `${size.height}px`,
-            overflow: "hidden",
 
             ...(mobile ? homeOnMobile : homeOnDesktop),
           }}
@@ -67,10 +67,13 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
           <div
             style={{
               display: "flex",
+              maxWidth: size.width,
               ...(mobile ? orientationOnMobile : orientationOnDesktop),
             }}
           >
-            {mobile ? <Me mobile={mobile} /> : null}
+            {mobile ? (
+              <Me mobile={mobile} style={{ maxWidth: size.width }} />
+            ) : null}
             <span>
               <div className="hi-wrapper">
                 <h1
@@ -89,7 +92,11 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
                   className="im-gabriel"
                   style={{
                     color: Theme.colors.brand_400,
-                    fontSize: Theme.font.size.xxx_large,
+                    ...(size.width < CONFIG.FONT_SIZE.LIMIT
+                      ? { fontSize: Theme.font.size.xx_large }
+                      : {
+                          fontSize: Theme.font.size.xxx_large,
+                        }),
                     ...(mobile ? textOnMobile : textOnDesktop),
                   }}
                 >
@@ -100,7 +107,10 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
             {!mobile ? (
               <Me
                 mobile={mobile}
-                style={{ marginLeft: `${size.width - 1000}px` }}
+                style={{
+                  marginLeft: `${size.width - 1000}px`,
+                  maxWidth: size.width,
+                }}
               />
             ) : null}
           </div>
