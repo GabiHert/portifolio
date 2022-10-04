@@ -3,11 +3,14 @@ import { Theme } from "../../../theme";
 
 export function ExperienceScroll() {
   return (
-    <div className="topics" style={{ color: "white" }}>
+    <div
+      className="topics"
+      style={{ color: "white", paddingRight: 10, paddingLeft: 10 }}
+    >
       <div
         className="topic"
         style={{
-          marginRight: "120px",
+          marginRight: "50px",
           backgroundColor: Theme.colors.brand_800,
           minWidth: "300px",
           height: "600px",
@@ -21,7 +24,7 @@ export function ExperienceScroll() {
       <div
         className="topic"
         style={{
-          marginRight: "120px",
+          marginRight: "50px",
           backgroundColor: Theme.colors.brand_800,
           minWidth: "300px",
           height: "600px",

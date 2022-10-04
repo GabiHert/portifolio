@@ -23,12 +23,14 @@ export function SectionsScroll({
   const [myRocketJourneyHoverStyle, setMyRocketJourneyHoverStyle] =
     useState(sectionNotOnHover);
 
+  const marginRight = "50px";
+
   return (
-    <div className="wrapper">
+    <div className="wrapper" style={{ paddingRight: 10, paddingLeft: 10 }}>
       <a
         className="section"
         style={{
-          marginRight: "120px",
+          marginRight,
           ...aboutMeHoverStyle,
           ...sectionStyle,
         }}
@@ -47,7 +49,7 @@ export function SectionsScroll({
         style={{
           ...sectionStyle,
           ...projectsHoverStyle,
-          marginRight: "120px",
+          marginRight,
         }}
         onMouseEnter={() => {
           setProjectsHoverStyle(sectionOnHover);
@@ -64,7 +66,7 @@ export function SectionsScroll({
         style={{
           ...sectionStyle,
           ...experienceHoverStyle,
-          marginRight: "120px",
+          marginRight,
         }}
         onMouseEnter={() => {
           setExperienceHoverStyle(sectionOnHover);

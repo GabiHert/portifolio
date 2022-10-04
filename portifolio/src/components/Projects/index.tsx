@@ -95,7 +95,7 @@ export function Projects({
                 <div
                   className={"projects-container"}
                   style={{
-                    width: "60%",
+                    width: "80%",
                     minHeight: "200px",
                     background: Theme.colors.brand_800,
                     wordWrap: "break-word",

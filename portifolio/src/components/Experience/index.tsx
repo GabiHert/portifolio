@@ -92,7 +92,7 @@ export function Experience({
                 <div
                   className={"experience-container"}
                   style={{
-                    width: "82%",
+                    width: "80%",
                     minHeight: "200px",
                     background: Theme.colors.brand_800,
                     wordWrap: "break-word",

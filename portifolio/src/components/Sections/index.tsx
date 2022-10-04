@@ -115,6 +115,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
 
           <div
             style={{
+
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
