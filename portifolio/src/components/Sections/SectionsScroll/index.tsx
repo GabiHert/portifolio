@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { sectionNotOnHover, sectionOnHover, sectionStyle } from "../style";
 import "./horizontal-scroll.css";
-import { useState } from "react";
 
 interface sectionsProps {
   onAboutMePressed: () => void;
@@ -32,7 +32,8 @@ export function SectionsScroll({
         style={{
           marginRight,
           ...aboutMeHoverStyle,
-          ...sectionStyle,
+          ...sectionStyle,  
+          
         }}
         onMouseEnter={() => {
           setAboutMeHoverStyle(sectionOnHover);
@@ -78,7 +79,11 @@ export function SectionsScroll({
       >
         Experience
       </a>
-      <a
+      
+    </div>
+  );
+}
+/**<a
         className="section"
         style={{
           ...sectionStyle,
@@ -93,7 +98,4 @@ export function SectionsScroll({
         href={"#my-rocket-journey"}
       >
         My Rocket Journey
-      </a>
-    </div>
-  );
-}
+      </a> */

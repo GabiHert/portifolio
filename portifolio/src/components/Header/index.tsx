@@ -1,8 +1,8 @@
-import React, { useState } from "react";
 import { Menu } from "@headlessui/react";
+import React, { useState } from "react";
 
-import { Theme } from "././../../theme";
 import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
+import { Theme } from "././../../theme";
 import {
   notHoverListStyle,
   notHoverSocialStyle,
@@ -11,7 +11,7 @@ import {
   onHoverListSectionStyle,
   onHoverListStyle,
   onHoverSocialIconStyle,
-  onHoverSocialStyle,
+  onHoverSocialStyle
 } from "./style";
 
 interface HeaderProps {
@@ -57,6 +57,7 @@ export function Header({ sectionName, size }: HeaderProps) {
         flexDirection: "row",
         display: "flex",
         position: "sticky",
+        opacity:0.98,
         top: 0,
         zIndex: 9,
       }}
@@ -108,13 +109,16 @@ export function Header({ sectionName, size }: HeaderProps) {
                 : notOnHoverListSectionStyle),
             }}
             onMouseEnter={() => {
+              console.log("onClick")
               setIsListHomeOnHover(true);
             }}
             onMouseLeave={() => {
+              console.log("onClick")
               setIsListHomeOnHover(false);
             }}
+            onClick={()=>{console.log("onClick")}}
           >
-            • home
+            • Home
           </Menu.Item>
           <Menu.Item
             as={"a"}
@@ -184,23 +188,7 @@ export function Header({ sectionName, size }: HeaderProps) {
           >
             • Experience
           </Menu.Item>
-          <Menu.Item
-            as={"a"}
-            href={"#my-rocket-journey"}
-            style={{
-              ...(isListMyRocketJourneyOnHover
-                ? onHoverListSectionStyle
-                : notOnHoverListSectionStyle),
-            }}
-            onMouseEnter={() => {
-              setIsListMyRocketJourneyOnHover(true);
-            }}
-            onMouseLeave={() => {
-              setIsListMyRocketJourneyOnHover(false);
-            }}
-          >
-            • My Rocket Journey
-          </Menu.Item>
+ 
         </Menu.Items>
       </Menu>
 

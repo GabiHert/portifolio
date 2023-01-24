@@ -1,8 +1,8 @@
+import HTMLReactParser from "html-react-parser";
+import { useEffect } from "react";
+import { Animation } from "../../Animation";
 import { Theme } from "../../theme";
 import "./projectsStyle.css";
-import HTMLReactParser from "html-react-parser";
-import { Animation } from "../../Animation";
-import { useEffect } from "react";
 
 interface projectsProps {
   mobile: boolean;
@@ -105,7 +105,7 @@ export function Projects({
                     color: "white",
                   }}
                 >
-                  {HTMLReactParser(value as string)}{" "}
+                  {HTMLReactParser(value as string)}
                 </div>
               );
             })}
