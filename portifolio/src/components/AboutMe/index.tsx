@@ -79,7 +79,7 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
                   textAlign: "center",
                 }}
               >
-                Back end developer
+                Back-end developer
               </h1>
             </div>
             <div className={"creative-wrapper"}>
@@ -134,18 +134,17 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
                 lineHeight: "160%",
               }}
             >
-              Hi! <br />
-              My name is Gabriel Guinter Herter, I live in Brazil. I'm a back
-              end developer, a very focused, determined
-              and creative person, always seeking for innovation. I usually try to bring my
-              interest areas to my daily living, analyzing applicable
-              opportunities to develop new projects with good solutions, that
-              way I can keep acquiring knowledge and new abilities.<br/> I lead my life
-              with determination, positivity and with the mentality of always
-              being in constant evolution an search for knowledge. At this
-              moment, I'm a Computer Engineer student at <a href="https://www.pucrs.br/en/" style={{textDecorationLine:"none",color:Theme.colors.brand_400}} target="_blank">PUCRS </a>
-                and I work at a company called <a href="https://www.dock.tech" style={{textDecorationLine:"none",color:Theme.colors.brand_400}} target="_blank">Dock</a> as a Software Engineer.
-              My Hobbies are mainly: basketball, surf, programming and D.I.Y. I like video games( but I barely play them), reading (that is something I'm working on to make more usual and I'm reaching great results), technology and a clean, minimalistic computer setup.  
+                    Hi! <br />
+               My name is Gabriel Guinter Herter, I live in Brazil. I'm a back-end developer, a very focused, determined and creative person, always seeking innovation. I usually try to bring my
+ interest areas to my daily living, analyzing applicable
+ opportunities to develop new projects with good solutions. That
+ way I can keep acquiring knowledge and new abilities.<br/> I lead my life
+ with determination, positivity, and the mentality of always
+ being in constant evolution and search for knowledge. At this
+ moment, I'm a Computer Engineer student at <a href="https://www.pucrs.br/en/" style={{textDecorationLine:"none",color:Theme.colors.brand_400}} target="_blank">PUCRS </a>
+ and I work at a company called <a href="https://www.dock.tech" style={{textDecorationLine:"none",color:Theme.colors.brand_400}} target="_blank">Dock</a> as a Software Engineer.
+ My Hobbies are mainly: basketball, surfing, programming and D.I.Y. I like video games (but I barely play them), reading (that is something I'm working on to make more usual and I'm reaching great results), coffee, technology and a clean, minimalistic computer setup. 
+ I have the dream of some day creating my own tech startup, building something new and innovative.
   
             </h1>
           </section>
