@@ -2,6 +2,7 @@ import { Menu } from "@headlessui/react";
 import React, { useState } from "react";
 
 import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
+import { CONFIG } from "../../config/config";
 import { Theme } from "././../../theme";
 import {
   notHoverListStyle,
@@ -45,6 +46,19 @@ export function Header({ sectionName, size }: HeaderProps) {
   const [isListExperienceOnHover, setIsListExperienceOnHover] = useState(false);
   const [isListMyRocketJourneyOnHover, setIsListMyRocketJourneyOnHover] =
     useState(false);
+
+    function onLinkInClick(){
+      window.open(CONFIG.URL.LINKEDIN, '_blank', 'noreferrer');
+    }
+
+    function onEmailClick(){
+      window.alert("Email copied to your clipboard!")
+      navigator.clipboard.writeText(CONFIG.URL.EMAIL)
+    }
+
+    function onGithubClick(){
+      window.open(CONFIG.URL.GITHUB, '_blank', 'noreferrer');
+    }
 
   return (
     <header
@@ -109,14 +123,11 @@ export function Header({ sectionName, size }: HeaderProps) {
                 : notOnHoverListSectionStyle),
             }}
             onMouseEnter={() => {
-              console.log("onClick")
               setIsListHomeOnHover(true);
             }}
             onMouseLeave={() => {
-              console.log("onClick")
               setIsListHomeOnHover(false);
             }}
-            onClick={()=>{console.log("onClick")}}
           >
             • Home
           </Menu.Item>
@@ -265,6 +276,8 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setMailHoverStyle(notOnHoverSocialIconStyle);
               }}
+              onClick={() => {onEmailClick()}}
+
             />
             <LinkedinLogo
               style={{
@@ -283,6 +296,9 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setLinkedInHoverStyle(notOnHoverSocialIconStyle);
               }}
+
+              onClick={() => {onLinkInClick()}}
+            
             />
             <GithubLogo
               style={{
@@ -301,6 +317,8 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setGitHoverStyle(notOnHoverSocialIconStyle);
               }}
+              onClick={() => {onGithubClick()}}
+
             />
           </>
         ) : (

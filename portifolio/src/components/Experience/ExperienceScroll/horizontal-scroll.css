@@ -1,6 +1,6 @@
 .topics {
     display:flex;
-    overflow-x: auto;
+overflow-x: scroll;
     padding-bottom: 10px;
 }
 

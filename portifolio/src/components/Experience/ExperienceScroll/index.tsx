@@ -5,7 +5,7 @@ export function ExperienceScroll() {
   return (
     <div
       className="topics"
-      style={{ color: "white", paddingRight: 10, paddingLeft: 10, alignItems: "center",justifyContent: "center" }}
+      style={{ color: "white", alignItems: "center",justifyContent: "center" }}
     >
       <div
         className="topic"
@@ -79,7 +79,7 @@ export function ExperienceScroll() {
         </div>
 
         <div>
-        <h3>· <a href="https://railway.app" target="_blank" style={{color:Theme.colors.brand_400, textDecoration:"none"}}>Jenkins</a></h3>
+        <h3>· <a href="https://www.jenkins.io" target="_blank" style={{color:Theme.colors.brand_400, textDecoration:"none"}}>Jenkins</a></h3>
         <h3>· <a href="https://railway.app" target="_blank" style={{color:Theme.colors.brand_400, textDecoration:"none"}}>Railway App</a></h3>
         <h3>· <a href="https://vercel.com" target="_blank" style={{color:Theme.colors.brand_400, textDecoration:"none"}}>Vercel</a></h3>
         </div>
