@@ -1,18 +1,18 @@
 import "./bounce.css";
 
-import { Theme } from "../../theme";
-import {
-  homeOnDesktop,
-  homeOnMobile,
-  orientationOnDesktop,
-  orientationOnMobile,
-  textOnDesktop,
-  textOnMobile,
-} from "./style";
-import { Me } from "./me";
-import { Animation } from "../../Animation";
 import { useEffect } from "react";
+import { Animation } from "../../Animation";
 import { CONFIG } from "../../config/config";
+import { Theme } from "../../theme";
+import { Me } from "./me";
+import {
+    homeOnDesktop,
+    homeOnMobile,
+    orientationOnDesktop,
+    orientationOnMobile,
+    textOnDesktop,
+    textOnMobile
+} from "./style";
 
 interface homeProps {
   mobile: boolean;
@@ -122,7 +122,7 @@ export function Home({ mobile, setSectionName, size }: homeProps) {
                 fontSize: Theme.font.size.x_large,
               }}
             >
-              Be welcome to my portifolio!
+              Be welcome to my portfolio!
             </h1>
           </div>
         </div>
