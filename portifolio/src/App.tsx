@@ -9,7 +9,6 @@ import { Home } from "./components/Home";
 import { Loading } from "./components/Loading";
 import { Projects } from "./components/Projects";
 import { Sections } from "./components/Sections";
-
 function useWindowWidth() {
   const [size, setSize] = useState({
     width: window.innerWidth,
@@ -47,7 +46,7 @@ const [alertOnce,setAlertOnce]= useState<boolean>(false);
   useEffect(() => {
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
-window.alert("Just to remind you, this project is still in development")},[]);
+window.alert("Just to remind you, this project is still in development. I hope you enjoy it!")},[]);
  
   return isLoading ? (
     <Loading size={useWindowWidth()} />
@@ -93,7 +92,6 @@ window.alert("Just to remind you, this project is still in development")},[]);
           size={useWindowWidth()}
         />
 
-
       </div>
       <h3
         style={{
@@ -105,6 +103,7 @@ window.alert("Just to remind you, this project is still in development")},[]);
       >
         Made with ❤️ by Gabriel Guinter Herter
       </h3>
+
     </>
   );
 }
