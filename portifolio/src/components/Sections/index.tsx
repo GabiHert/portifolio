@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
+import { Animation } from "../../Animation";
 import { Theme } from "../../theme";
+import { SectionsScroll } from "./SectionsScroll";
+import "./SectionsScroll/horizontal-scroll.css";
 import {
   sectionNotOnHover,
   textContainerDesktop,
-  textContainerMobile,
+  textContainerMobile
 } from "./style";
-import "./SectionsScroll/horizontal-scroll.css";
-import { useEffect, useState } from "react";
-import { SectionsScroll } from "./SectionsScroll";
-import { Animation } from "../../Animation";
 
 interface sectionsProps {
   mobile: boolean;
@@ -121,20 +121,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
               alignItems: "center",
             }}
           >
-            <SectionsScroll
-              onAboutMePressed={() => {
-                console.log("FOOIII");
-              }}
-              onProjectsPressed={() => {
-                console.log("FOOIII2");
-              }}
-              onExperiencePressed={() => {
-                console.log("FOOIII3");
-              }}
-              onMyRocketJourneyPressed={() => {
-                console.log("FOOIII4");
-              }}
-            />
+            <SectionsScroll/>
           </div>
         </div>
       </div>

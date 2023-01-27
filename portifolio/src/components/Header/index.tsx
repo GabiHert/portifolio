@@ -167,23 +167,6 @@ export function Header({ sectionName, size }: HeaderProps) {
           </Menu.Item>
           <Menu.Item
             as={"a"}
-            href={"#projects"}
-            style={{
-              ...(isListProjectsOnHover
-                ? onHoverListSectionStyle
-                : notOnHoverListSectionStyle),
-            }}
-            onMouseEnter={() => {
-              setIsListProjectsOnHover(true);
-            }}
-            onMouseLeave={() => {
-              setIsListProjectsOnHover(false);
-            }}
-          >
-            • Projects
-          </Menu.Item>
-          <Menu.Item
-            as={"a"}
             href="#experience"
             style={{
               ...(isListExperienceOnHover
@@ -199,6 +182,24 @@ export function Header({ sectionName, size }: HeaderProps) {
           >
             • Experience
           </Menu.Item>
+          <Menu.Item
+            as={"a"}
+            href={"#projects"}
+            style={{
+              ...(isListProjectsOnHover
+                ? onHoverListSectionStyle
+                : notOnHoverListSectionStyle),
+            }}
+            onMouseEnter={() => {
+              setIsListProjectsOnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsListProjectsOnHover(false);
+            }}
+          >
+            • Projects
+          </Menu.Item>
+
  
         </Menu.Items>
       </Menu>

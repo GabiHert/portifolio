@@ -1,12 +1,12 @@
 import { Theme } from "../../../theme";
 import "./horizontal-scroll.css";
 
-export function ExperienceScroll() {
+export function ExperienceScroll(props:{mobile: boolean}) {
   return (
     <div
       className="topics"
-      style={{ color: "white", alignItems: "center",justifyContent: "center" }}
-    >
+      style={{color:"white",...(props.mobile?{}:{justifyContent:"center"})}}>
+        
       <div
         className="topic"
         style={{

@@ -1,9 +1,9 @@
-import { ExperienceScroll } from "./ExperienceScroll";
-import { Theme } from "../../theme";
 import HTMLReactParser from "html-react-parser";
-import "./experiencesStyle.css";
-import { Animation } from "../../Animation";
 import { useEffect } from "react";
+import { Animation } from "../../Animation";
+import { Theme } from "../../theme";
+import { ExperienceScroll } from "./ExperienceScroll";
+import "./experiencesStyle.css";
 
 interface experienceProps {
   mobile: boolean;
@@ -77,7 +77,7 @@ export function Experience({
               marginBottom: "100px",
             }}
           >
-            <ExperienceScroll />
+            <ExperienceScroll mobile={mobile} />
           </div>
           <div
             style={{
