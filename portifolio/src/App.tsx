@@ -46,7 +46,8 @@ const [alertOnce,setAlertOnce]= useState<boolean>(false);
   useEffect(() => {
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
-window.alert("Just to remind you, this project is still in development. I hope you enjoy it!")},[]);
+window.alert("Just to remind you, this project is still in development. I hope you enjoy it!")
+},[]);
  
   return isLoading ? (
     <Loading size={useWindowWidth()} />

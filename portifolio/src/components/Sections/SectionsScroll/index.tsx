@@ -9,12 +9,7 @@ interface sectionsProps {
   onMyRocketJourneyPressed: () => void;
 }
 
-export function SectionsScroll({
-  onMyRocketJourneyPressed,
-  onAboutMePressed,
-  onExperiencePressed,
-  onProjectsPressed,
-}: sectionsProps) {
+export function SectionsScroll() {
   const [aboutMeHoverStyle, setAboutMeHoverStyle] = useState(sectionNotOnHover);
   const [projectsHoverStyle, setProjectsHoverStyle] =
     useState(sectionNotOnHover);
@@ -49,23 +44,6 @@ export function SectionsScroll({
         className="section"
         style={{
           ...sectionStyle,
-          ...projectsHoverStyle,
-          marginRight,
-        }}
-        onMouseEnter={() => {
-          setProjectsHoverStyle(sectionOnHover);
-        }}
-        onMouseLeave={() => {
-          setProjectsHoverStyle(sectionNotOnHover);
-        }}
-        href={"#projects"}
-      >
-        Projects
-      </a>
-      <a
-        className="section"
-        style={{
-          ...sectionStyle,
           ...experienceHoverStyle,
           marginRight,
         }}
@@ -80,6 +58,24 @@ export function SectionsScroll({
         Experience
       </a>
       
+      <a
+        className="section"
+        style={{
+          ...sectionStyle,
+          ...projectsHoverStyle,
+          marginRight,
+        }}
+        onMouseEnter={() => {
+          setProjectsHoverStyle(sectionOnHover);
+        }}
+        onMouseLeave={() => {
+          setProjectsHoverStyle(sectionNotOnHover);
+        }}
+        href={"#projects"}
+      >
+        Projects
+      </a>
+
     </div>
   );
 }
