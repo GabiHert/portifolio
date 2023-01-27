@@ -29,4 +29,5 @@ export const sectionNotOnHover: React.CSSProperties = {
   background: Theme.colors.brand_800,
 };
 
-export {};
+export { };
+

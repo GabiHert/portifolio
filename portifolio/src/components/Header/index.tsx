@@ -1,8 +1,9 @@
-import React, { useState } from "react";
 import { Menu } from "@headlessui/react";
+import React, { useState } from "react";
 
-import { Theme } from "././../../theme";
 import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
+import { CONFIG } from "../../config/config";
+import { Theme } from "././../../theme";
 import {
   notHoverListStyle,
   notHoverSocialStyle,
@@ -11,7 +12,7 @@ import {
   onHoverListSectionStyle,
   onHoverListStyle,
   onHoverSocialIconStyle,
-  onHoverSocialStyle,
+  onHoverSocialStyle
 } from "./style";
 
 interface HeaderProps {
@@ -46,6 +47,19 @@ export function Header({ sectionName, size }: HeaderProps) {
   const [isListMyRocketJourneyOnHover, setIsListMyRocketJourneyOnHover] =
     useState(false);
 
+    function onLinkInClick(){
+      window.open(CONFIG.URL.LINKEDIN, '_blank', 'noreferrer');
+    }
+
+    function onEmailClick(){
+      window.alert("Email copied to your clipboard!")
+      navigator.clipboard.writeText(CONFIG.URL.EMAIL)
+    }
+
+    function onGithubClick(){
+      window.open(CONFIG.URL.GITHUB, '_blank', 'noreferrer');
+    }
+
   return (
     <header
       style={{
@@ -57,6 +71,7 @@ export function Header({ sectionName, size }: HeaderProps) {
         flexDirection: "row",
         display: "flex",
         position: "sticky",
+        opacity:0.98,
         top: 0,
         zIndex: 9,
       }}
@@ -114,7 +129,7 @@ export function Header({ sectionName, size }: HeaderProps) {
               setIsListHomeOnHover(false);
             }}
           >
-            • home
+            • Home
           </Menu.Item>
           <Menu.Item
             as={"a"}
@@ -184,23 +199,7 @@ export function Header({ sectionName, size }: HeaderProps) {
           >
             • Experience
           </Menu.Item>
-          <Menu.Item
-            as={"a"}
-            href={"#my-rocket-journey"}
-            style={{
-              ...(isListMyRocketJourneyOnHover
-                ? onHoverListSectionStyle
-                : notOnHoverListSectionStyle),
-            }}
-            onMouseEnter={() => {
-              setIsListMyRocketJourneyOnHover(true);
-            }}
-            onMouseLeave={() => {
-              setIsListMyRocketJourneyOnHover(false);
-            }}
-          >
-            • My Rocket Journey
-          </Menu.Item>
+ 
         </Menu.Items>
       </Menu>
 
@@ -277,6 +276,8 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setMailHoverStyle(notOnHoverSocialIconStyle);
               }}
+              onClick={() => {onEmailClick()}}
+
             />
             <LinkedinLogo
               style={{
@@ -295,6 +296,9 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setLinkedInHoverStyle(notOnHoverSocialIconStyle);
               }}
+
+              onClick={() => {onLinkInClick()}}
+            
             />
             <GithubLogo
               style={{
@@ -313,6 +317,8 @@ export function Header({ sectionName, size }: HeaderProps) {
               onMouseLeave={() => {
                 setGitHoverStyle(notOnHoverSocialIconStyle);
               }}
+              onClick={() => {onGithubClick()}}
+
             />
           </>
         ) : (

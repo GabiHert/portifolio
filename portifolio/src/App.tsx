@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Sections } from "./components/Sections";
-import { Home } from "./components/Home";
+import { useEffect, useRef, useState } from "react";
+import { experience } from "../experience";
+import { projects } from "../projects";
 import "./App.css";
 import { AboutMe } from "./components/AboutMe";
-import { Projects } from "./components/Projects";
-import { projects } from "../projects";
 import { Experience } from "./components/Experience";
-import { experience } from "../experience";
-import { Loading } from "./components/Loading";
 import { Header } from "./components/Header";
-
+import { Home } from "./components/Home";
+import { Loading } from "./components/Loading";
+import { Projects } from "./components/Projects";
+import { Sections } from "./components/Sections";
 function useWindowWidth() {
   const [size, setSize] = useState({
     width: window.innerWidth,
@@ -31,9 +30,12 @@ function useWindowWidth() {
   return size;
 }
 
-function App() {
-  const [sectionName, setSectionName] = useState<string | null>(null);
 
+function App() {
+
+  const dataFetchedRef = useRef(false);
+  const [sectionName, setSectionName] = useState<string | null>(null);
+const [alertOnce,setAlertOnce]= useState<boolean>(false);
   const isMobile = useWindowWidth().width < 990;
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,6 +43,11 @@ function App() {
     setSectionName(sectionName);
   }
 
+  useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+window.alert("Just to remind you, this project is still in development. I hope you enjoy it!")},[]);
+ 
   return isLoading ? (
     <Loading size={useWindowWidth()} />
   ) : (
@@ -68,6 +75,14 @@ function App() {
           }}
           size={useWindowWidth()}
         />
+        <Experience
+          mobile={isMobile}
+          setSectionName={(sectionName) => {
+            handleSectionNameChanged(sectionName);
+          }}
+          size={useWindowWidth()}
+          experience={experience}
+        />
         <Projects
           projects={projects}
           mobile={isMobile}
@@ -77,14 +92,6 @@ function App() {
           size={useWindowWidth()}
         />
 
-        <Experience
-          mobile={isMobile}
-          setSectionName={(sectionName) => {
-            handleSectionNameChanged(sectionName);
-          }}
-          size={useWindowWidth()}
-          experience={experience}
-        />
       </div>
       <h3
         style={{
@@ -96,6 +103,7 @@ function App() {
       >
         Made with ❤️ by Gabriel Guinter Herter
       </h3>
+
     </>
   );
 }
