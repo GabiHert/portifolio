@@ -1,5 +1,6 @@
-import me from "../../../assets/me.mp4";
 import React from "react";
+import me from "../../../assets/me.mp4";
+import "./style.css";
 
 interface meProps {
   mobile: boolean;
@@ -7,28 +8,18 @@ interface meProps {
 }
 export function Me({ mobile, style }: meProps) {
   return (
+    <div  style={{alignItems: "center",
+ 
+    ...style,
+    ...(mobile ? { alignSelf: "center" } : {}),}} dangerouslySetInnerHTML={{ __html: `
     <video
-      height="300px"
-      width="300px"
-      className="me-video"
-      controls={false}
-      autoPlay={true}
-      muted={true}
-      loop={true}
-      style={{
-        alignItems: "center",
-        alignSelf: "center",
-        justifySelf: "center",
-        borderColor: "white",
-        borderStyle: "solid",
-        borderRadius: "300px",
-        background: "black",
-        marginTop: "30px",
-        ...style,
-        ...(mobile ? { alignSelf: "center" } : {}),
-      }}
-    >
-      <source src={me} type={"video/mp4"} />
-    </video>
+      loop
+      muted
+      autoplay
+      playsinline
+      src="${me}"
+      class="me-video"
+    />,
+  ` }}></div>
   );
 }

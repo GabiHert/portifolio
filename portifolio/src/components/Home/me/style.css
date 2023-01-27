@@ -1,0 +1,38 @@
+.me-video {
+height: 300px;
+width: 300px;
+align-items: center;
+align-content: center;
+justify-self: center;
+border-color: white;
+border-style: solid;
+border-radius: 300px;
+background: black;
+margin-top: 30px;
+}
+
+/*
+
+<video
+height="300px"
+width="300px"
+className="me-video"
+controls={false}
+autoPlay={true}
+muted={true}
+loop={true}
+style={{
+  alignItems: "center",
+  alignSelf: "center",
+  justifySelf: "center",
+  borderColor: "white",
+  borderStyle: "solid",
+  borderRadius: "300px",
+  background: "black",
+  marginTop: "30px",
+  ...style,
+  ...(mobile ? { alignSelf: "center" } : {}),
+}}
+>
+<source src={me} type={"video/mp4"} />
+</video>*/
