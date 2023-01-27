@@ -14,7 +14,8 @@ export function ExperienceScroll(props:{mobile: boolean}) {
           backgroundColor: Theme.colors.brand_800,
           minWidth: "300px",
           maxWidth: "25%",
-          height: "600px",
+          height: "620px",
+
         }}
       >
         <h1 style={{ textAlign: "center", color: Theme.colors.brand_400 }}>
@@ -35,7 +36,8 @@ export function ExperienceScroll(props:{mobile: boolean}) {
           marginRight: "50px",
           backgroundColor: Theme.colors.brand_800,
           minWidth: "300px", maxWidth: "25%",
-          height: "600px",
+          height: "620px",
+
         }}
       >
         <h1 style={{ textAlign: "center", color: Theme.colors.brand_400 }}>
@@ -55,7 +57,7 @@ export function ExperienceScroll(props:{mobile: boolean}) {
         style={{
           backgroundColor: Theme.colors.brand_800,
           minWidth: "300px", maxWidth: "25%",
-          height: "600px",
+          height: "620px",
         }}
       >
         
