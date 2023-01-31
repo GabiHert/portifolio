@@ -2,10 +2,10 @@ import React from "react";
 import { Theme } from "../../theme";
 
 export const notHoverListStyle: React.CSSProperties = {
-  color: Theme.colors.brand_300,
+  color: Theme.colors.brand_200,
 };
 export const onHoverListStyle: React.CSSProperties = {
-  color: Theme.colors.brand_500,
+  color: Theme.colors.brand_400,
 };
 
 export const onHoverSocialStyle: React.CSSProperties = {
@@ -46,4 +46,5 @@ export const onHoverListSectionStyle: React.CSSProperties = {
   textDecoration: "none",
   color: "black",
 };
-export {};
+export { };
+

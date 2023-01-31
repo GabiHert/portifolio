@@ -127,7 +127,7 @@ export function AboutMe({ mobile, setSectionName, size }: aboutMeProps) {
           >
             <h1
               style={{
-                color: Theme.colors.brand_300,
+                color: Theme.colors.brand_800,
                 fontSize: Theme.font.size.medium,
                 textAlign: "center",
                 maxWidth: size.width - 100,

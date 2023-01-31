@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { sectionNotOnHover, sectionOnHover, sectionStyle } from "../style";
+import { AwesomeButton } from "react-awesome-button";
+import 'react-awesome-button/dist/styles.css';
+import { sectionStyle } from "../style";
+import "./awsome-button-style.scss";
 import "./horizontal-scroll.css";
-
 interface sectionsProps {
   onAboutMePressed: () => void;
   onProjectsPressed: () => void;
@@ -10,71 +11,45 @@ interface sectionsProps {
 }
 
 export function SectionsScroll() {
-  const [aboutMeHoverStyle, setAboutMeHoverStyle] = useState(sectionNotOnHover);
-  const [projectsHoverStyle, setProjectsHoverStyle] =
-    useState(sectionNotOnHover);
-  const [experienceHoverStyle, setExperienceHoverStyle] =
-    useState(sectionNotOnHover);
-  const [myRocketJourneyHoverStyle, setMyRocketJourneyHoverStyle] =
-    useState(sectionNotOnHover);
 
   const marginRight = "50px";
 
   return (
     <div className="wrapper" style={{ paddingRight: 10, paddingLeft: 10 }}>
-      <a
+      <AwesomeButton
         className="section"
+        type="secondary"
         style={{
           marginRight,
-          ...aboutMeHoverStyle,
           ...sectionStyle,  
-          
-        }}
-        onMouseEnter={() => {
-          setAboutMeHoverStyle(sectionOnHover);
-        }}
-        onMouseLeave={() => {
-          setAboutMeHoverStyle(sectionNotOnHover);
         }}
         href={"#about-me"}
       >
         About me
-      </a>
-      <a
+      </AwesomeButton>
+      <AwesomeButton
         className="section"
+        type="secondary"
         style={{
-          ...sectionStyle,
-          ...experienceHoverStyle,
           marginRight,
-        }}
-        onMouseEnter={() => {
-          setExperienceHoverStyle(sectionOnHover);
-        }}
-        onMouseLeave={() => {
-          setExperienceHoverStyle(sectionNotOnHover);
+          ...sectionStyle,  
         }}
         href={"#experience"}
       >
         Experience
-      </a>
+      </AwesomeButton>
       
-      <a
+      <AwesomeButton
         className="section"
+        type="secondary"
         style={{
-          ...sectionStyle,
-          ...projectsHoverStyle,
           marginRight,
-        }}
-        onMouseEnter={() => {
-          setProjectsHoverStyle(sectionOnHover);
-        }}
-        onMouseLeave={() => {
-          setProjectsHoverStyle(sectionNotOnHover);
+          ...sectionStyle,  
         }}
         href={"#projects"}
       >
         Projects
-      </a>
+      </AwesomeButton>
 
     </div>
   );

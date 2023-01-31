@@ -1,18 +1,17 @@
 import { Menu } from "@headlessui/react";
+import { GithubLogo, LinkedinLogo, List } from "phosphor-react";
 import React, { useState } from "react";
-
-import { EnvelopeSimple, GithubLogo, LinkedinLogo, List } from "phosphor-react";
+import { AwesomeButton } from "react-awesome-button";
+import 'react-awesome-button/dist/styles.css';
+import { Popover } from "react-bootstrap";
 import { CONFIG } from "../../config/config";
 import { Theme } from "././../../theme";
+import "./email-btn-style.scss";
 import {
   notHoverListStyle,
   notHoverSocialStyle,
-  notOnHoverListSectionStyle,
-  notOnHoverSocialIconStyle,
-  onHoverListSectionStyle,
-  onHoverListStyle,
-  onHoverSocialIconStyle,
-  onHoverSocialStyle
+  notOnHoverListSectionStyle, onHoverListSectionStyle,
+  onHoverListStyle, onHoverSocialStyle
 } from "./style";
 
 interface HeaderProps {
@@ -20,54 +19,47 @@ interface HeaderProps {
   size: { height: number; width: number };
 }
 
+
 export function Header({ sectionName, size }: HeaderProps) {
   const [hoverStyle, setHoverStyle] =
     useState<React.CSSProperties>(notHoverListStyle);
   const [isSocialOnHover, setIsSocialOnHover] = useState<boolean>(false);
-
   const [socialHoverStyle, setSocialHoverStyle] =
     useState<React.CSSProperties>(notHoverSocialStyle);
-
-  const [linkedInHoverStyle, setLinkedInHoverStyle] =
-    useState<React.CSSProperties>(notOnHoverSocialIconStyle);
-
-  const [gitHoverStyle, setGitHoverStyle] = useState<React.CSSProperties>(
-    notOnHoverSocialIconStyle
-  );
-
-  const [mailHoverStyle, setMailHoverStyle] = useState<React.CSSProperties>(
-    notOnHoverSocialIconStyle
-  );
-
   const [isListHomeOnHover, setIsListHomeOnHover] = useState(false);
   const [isListSectionsOnHover, setIsListSectionsOnHover] = useState(false);
   const [isListAboutMeOnHover, setIsListAboutMeOnHover] = useState(false);
   const [isListProjectsOnHover, setIsListProjectsOnHover] = useState(false);
   const [isListExperienceOnHover, setIsListExperienceOnHover] = useState(false);
-  const [isListMyRocketJourneyOnHover, setIsListMyRocketJourneyOnHover] =
-    useState(false);
+  const [isEmailOpen, setIsEmailOpen] = useState(false);
+  const [emailPopOverTarget,setEmailPopOverTarget] = useState(null);
+
+
+
 
     function onLinkInClick(){
       window.open(CONFIG.URL.LINKEDIN, '_blank', 'noreferrer');
     }
 
     function onEmailClick(){
-      window.alert("Email copied to your clipboard!")
-      navigator.clipboard.writeText(CONFIG.URL.EMAIL)
+      //window.alert("Email copied to your clipboard!")
+      //navigator.clipboard.writeText(CONFIG.URL.EMAIL)
+      setIsEmailOpen(!isEmailOpen)
+      
     }
 
     function onGithubClick(){
       window.open(CONFIG.URL.GITHUB, '_blank', 'noreferrer');
     }
 
-  return (
+  return (<>
     <header
       style={{
         width: size.width,
         background: Theme.colors.brand_800,
-        height: "75px",
-        borderBottomRightRadius: 11,
-        borderBottomLeftRadius: 11,
+        height: "65px",
+        borderBottomRightRadius: 5,
+        borderBottomLeftRadius: 5,
         flexDirection: "row",
         display: "flex",
         position: "sticky",
@@ -199,8 +191,6 @@ export function Header({ sectionName, size }: HeaderProps) {
           >
             • Projects
           </Menu.Item>
-
- 
         </Menu.Items>
       </Menu>
 
@@ -223,10 +213,10 @@ export function Header({ sectionName, size }: HeaderProps) {
           {sectionName}
         </span>
       ) : null}
-
+    
       <span
         style={{
-          backgroundColor: Theme.colors.brand_500,
+          backgroundColor: Theme.colors.brand_400,
           borderRadius: 30,
           marginTop: "10px",
           height: "35px",
@@ -259,73 +249,61 @@ export function Header({ sectionName, size }: HeaderProps) {
       >
         {isSocialOnHover ? (
           <>
-            <EnvelopeSimple
-              style={{
-                borderRadius: "20px",
-                marginRight: "10%",
-                color: Theme.colors.brand_300,
-                height: "100%",
-                maxWidth: "45px",
-
-                ...mailHoverStyle,
-              }}
-              size="100%"
-              height="90%"
-              onMouseEnter={() => {
-                setMailHoverStyle(onHoverSocialIconStyle);
-              }}
-              onMouseLeave={() => {
-                setMailHoverStyle(notOnHoverSocialIconStyle);
-              }}
-              onClick={() => {onEmailClick()}}
-
-            />
-            <LinkedinLogo
+              <AwesomeButton
               style={{
                 borderRadius: "20px",
                 marginRight: "10%",
                 height: "100%",
                 maxWidth: "45px",
-                color: Theme.colors.brand_300,
-                ...linkedInHoverStyle,
               }}
-              size="100%"
-              height="90%"
-              onMouseEnter={() => {
-                setLinkedInHoverStyle(onHoverSocialIconStyle);
-              }}
-              onMouseLeave={() => {
-                setLinkedInHoverStyle(notOnHoverSocialIconStyle);
-              }}
+              type="primary"
+              onPress={()=>onEmailClick()}
+              className="email-btn"
+          ><h3 style={{fontSize:"10%"}}>Email</h3></AwesomeButton> 
 
-              onClick={() => {onLinkInClick()}}
-            
-            />
-            <GithubLogo
+          <AwesomeButton
               style={{
                 borderRadius: "20px",
+                marginRight: "10%",
                 height: "100%",
                 maxWidth: "45px",
-
-                color: Theme.colors.brand_300,
-                ...gitHoverStyle,
               }}
+              size="icon"
+              type="linkedin"
+              onPress={() =>onLinkInClick()}><LinkedinLogo /></AwesomeButton>
+
+          <AwesomeButton
+              style={{
+                borderRadius: "20px",
+                marginRight: "10%",
+                height: "100%",
+                maxWidth: "45px",
+              }}
+              type="github"
               size="100%"
-              height="90%"
-              onMouseEnter={() => {
-                setGitHoverStyle(onHoverSocialIconStyle);
-              }}
-              onMouseLeave={() => {
-                setGitHoverStyle(notOnHoverSocialIconStyle);
-              }}
-              onClick={() => {onGithubClick()}}
-
-            />
+              onPress={() =>onGithubClick()}
+          ><GithubLogo/></AwesomeButton>
           </>
         ) : (
           <>Social</>
         )}
+
       </span>
+      
+      
     </header>
+    {isEmailOpen?
+  <Popover
+style={{  display:"flex",position:"absolute",  
+top:50,left:300,
+zIndex: 10,background:Theme.colors.brand_200,borderColor:Theme.colors.brand_800,borderWidth:10,borderRadius:5,width:100,height:100}}
+id="popover-basic"
+    placement="bottom"
+    title="Popover right"
+  >
+    TEST
+  </Popover>
+:null}
+    </>
   );
 }

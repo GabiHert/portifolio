@@ -9,6 +9,7 @@ import { Home } from "./components/Home";
 import { Loading } from "./components/Loading";
 import { Projects } from "./components/Projects";
 import { Sections } from "./components/Sections";
+import { Theme } from "./theme";
 function useWindowWidth() {
   const [size, setSize] = useState({
     width: window.innerWidth,
@@ -52,7 +53,7 @@ window.alert("Just to remind you, this project is still in development. I hope y
   return isLoading ? (
     <Loading size={useWindowWidth()} />
   ) : (
-    <>
+    <div style={{background:Theme.colors.brand_300}}>
       <Header sectionName={sectionName} size={useWindowWidth()} />
       <div className={"container"} style={{ maxWidth: useWindowWidth().width }}>
         <Home
@@ -105,7 +106,7 @@ window.alert("Just to remind you, this project is still in development. I hope y
         Made with ❤️ by Gabriel Guinter Herter
       </h3>
 
-    </>
+    </div>
   );
 }
 

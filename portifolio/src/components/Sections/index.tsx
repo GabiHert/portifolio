@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Animation } from "../../Animation";
 import { Theme } from "../../theme";
 import { SectionsScroll } from "./SectionsScroll";
 import "./SectionsScroll/horizontal-scroll.css";
 import {
-  sectionNotOnHover,
+
   textContainerDesktop,
   textContainerMobile
 } from "./style";
@@ -28,13 +28,6 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
     observer.observe(document.querySelector(".section-start"));
   });
 
-  const [aboutMeHoverStyle, setAboutMeHoverStyle] = useState(sectionNotOnHover);
-  const [projectsHoverStyle, setProjectsHoverStyle] =
-    useState(sectionNotOnHover);
-  const [experienceHoverStyle, setExperienceHoverStyle] =
-    useState(sectionNotOnHover);
-  const [myRocketJourneyHoverStyle, setMyRocketJourneyHoverStyle] =
-    useState(sectionNotOnHover);
 
   const sectionsAnimation = new Animation();
   sectionsAnimation.animateOnScroll(
@@ -79,7 +72,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
               <h1
                 className={"select-a-section"}
                 style={{
-                  color: Theme.colors.brand_300,
+                  color: Theme.colors.brand_400,
                   paddingLeft: "10px",
                   fontSize: Theme.font.size.large,
                 }}
@@ -91,7 +84,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
               <h1
                 className={"or"}
                 style={{
-                  color: Theme.colors.brand_400,
+                  color: Theme.colors.brand_800,
                   paddingLeft: "10px",
                   fontSize: Theme.font.size.large,
                 }}
@@ -103,7 +96,7 @@ export function Sections({ mobile, setSectionName, size }: sectionsProps) {
               <h1
                 className={"keep-scrolling"}
                 style={{
-                  color: Theme.colors.brand_300,
+                  color: Theme.colors.brand_400,
                   paddingLeft: "10px",
                   fontSize: Theme.font.size.large,
                 }}

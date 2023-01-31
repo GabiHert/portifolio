@@ -18,16 +18,11 @@ export const sectionStyle: React.CSSProperties = {
   textDecoration: "none",
   minWidth: "300px",
   height: "300px",
-  color: Theme.colors.brand_300,
+  color: Theme.colors.brand_200,
   fontSize: Theme.font.size.medium,
+  
 };
 
-export const sectionOnHover: React.CSSProperties = {
-  background: Theme.colors.brand_600,
-};
-export const sectionNotOnHover: React.CSSProperties = {
-  background: Theme.colors.brand_800,
-};
 
 export { };
 

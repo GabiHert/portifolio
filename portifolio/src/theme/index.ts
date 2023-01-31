@@ -1,11 +1,12 @@
 export const Theme = {
   colors: {
-    brand_800: "#654F6B",
-    brand_700: "#8A4E9B",
+    brand_800: "#3A3B3C",
+    brand_700: "#FFB877",
     brand_600: "#B935DD",
     brand_500: "#C28CD1",
     brand_400: "#FFB877",
-    brand_300: "#FFFFFF",
+    brand_300: "#F5F8F8",
+    brand_200: "#D3D3D3",
   },
   font: {
     size: {
