@@ -1,7 +1,7 @@
 import { AwesomeButton } from "react-awesome-button";
 import 'react-awesome-button/dist/styles.css';
+import "../../../theme/awsome-button-style.scss";
 import { sectionStyle } from "../style";
-import "./awsome-button-style.scss";
 import "./horizontal-scroll.css";
 interface sectionsProps {
   onAboutMePressed: () => void;
@@ -18,7 +18,7 @@ export function SectionsScroll() {
     <div className="wrapper" style={{ paddingRight: 10, paddingLeft: 10 }}>
       <AwesomeButton
         className="section"
-        type="secondary"
+        type="primary"
         style={{
           marginRight,
           ...sectionStyle,  
@@ -29,7 +29,7 @@ export function SectionsScroll() {
       </AwesomeButton>
       <AwesomeButton
         className="section"
-        type="secondary"
+        type="primary"
         style={{
           marginRight,
           ...sectionStyle,  
@@ -41,7 +41,7 @@ export function SectionsScroll() {
       
       <AwesomeButton
         className="section"
-        type="secondary"
+        type="primary"
         style={{
           marginRight,
           ...sectionStyle,  

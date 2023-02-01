@@ -3,6 +3,7 @@ import { experience } from "../experience";
 import { projects } from "../projects";
 import "./App.css";
 import { AboutMe } from "./components/AboutMe";
+import { EmailForm } from "./components/Email";
 import { Experience } from "./components/Experience";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
@@ -93,8 +94,10 @@ window.alert("Just to remind you, this project is still in development. I hope y
           }}
           size={useWindowWidth()}
         />
-
+        <EmailForm size={useWindowWidth()}/>
+   
       </div>
+    
       <h3
         style={{
           fontSize: "10px",
@@ -105,7 +108,6 @@ window.alert("Just to remind you, this project is still in development. I hope y
       >
         Made with ❤️ by Gabriel Guinter Herter
       </h3>
-
     </div>
   );
 }

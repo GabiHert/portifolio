@@ -3,10 +3,8 @@ import { GithubLogo, LinkedinLogo, List } from "phosphor-react";
 import React, { useState } from "react";
 import { AwesomeButton } from "react-awesome-button";
 import 'react-awesome-button/dist/styles.css';
-import { Popover } from "react-bootstrap";
 import { CONFIG } from "../../config/config";
 import { Theme } from "././../../theme";
-import "./email-btn-style.scss";
 import {
   notHoverListStyle,
   notHoverSocialStyle,
@@ -256,7 +254,7 @@ export function Header({ sectionName, size }: HeaderProps) {
                 height: "100%",
                 maxWidth: "45px",
               }}
-              type="primary"
+              type="secondary"
               onPress={()=>onEmailClick()}
               className="email-btn"
           ><h3 style={{fontSize:"10%"}}>Email</h3></AwesomeButton> 
@@ -292,18 +290,6 @@ export function Header({ sectionName, size }: HeaderProps) {
       
       
     </header>
-    {isEmailOpen?
-  <Popover
-style={{  display:"flex",position:"absolute",  
-top:50,left:300,
-zIndex: 10,background:Theme.colors.brand_200,borderColor:Theme.colors.brand_800,borderWidth:10,borderRadius:5,width:100,height:100}}
-id="popover-basic"
-    placement="bottom"
-    title="Popover right"
-  >
-    TEST
-  </Popover>
-:null}
     </>
   );
 }
